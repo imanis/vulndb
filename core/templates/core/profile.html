@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ page_user.profile.get_screen_name }}{% endblock %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/profile.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/feeds.css" rel="stylesheet">
+    <script src="{{ STATIC_URL }}js/jquery.bullseye-1.0-min.js"></script>
+    <script src="{{ STATIC_URL }}js/feeds.js"></script>
+{% endblock head %}
+
+{% block main %}
+    <div class="page-header">
+        <h1>{{ page_user.profile.get_screen_name }} {% if page_user.get_full_name %}
+            <small>({{ page_user.username }})</small>{% endif %}</h1>
+    </div>
+    <div class="profile">
+        <div class="row">
+
+            <div class="col-md-3 user-profile">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">{% trans 'User informations' %}</div>
+                    <div class="panel-body">
+                        <img src="{{ page_user.profile.get_picture }}" class="picture" style="margin-bottom: 10px;">
+
+                        <div class="user-profile informations">
+                            <ul>
+                                {% if page_user.profile.get_screen_name %}
+                                    <li><span class="glyphicon glyphicon-user"></span> <span
+                                            class="user-profile information">{{ page_user.profile.get_screen_name }}</span>
+                                    </li>
+                                {% endif %}
+                                {% if page_user.email %}
+                                    <li><span class="glyphicon glyphicon-envelope">  </span> <span
+                                            class="user-profile information">{{ page_user.email }} </span></li>
+                                {% endif %}
+                                {% if page_user.profile.job_title %}
+                                    <li><span class="glyphicon glyphicon-briefcase"></span> <span
+                                            class="user-profile information">{{ page_user.profile.job_title }}</span>
+                                    </li>
+                                {% endif %}
+
+                                <li class="divider"></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                {% if not user.username == page_user.username %}
+                    <div>
+                        <ul>
+
+
+                            <li>
+                                <a href=" {% url 'messages' page_user.username %} " class="list-group-item">
+                                    {% trans 'Start a conversation' %}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+            <div class="col-md-9">
+                <h5>{% trans 'Last Activities by' %} {{ page_user.profile.get_screen_name }}</h5>
+
+                <div class="stream-update">
+                    <a href="#"><span class="new-posts"></span> new posts</a>
+                </div>
+                <ul class="stream">
+                    {% for feed in feeds %}
+                        {% include 'feeds/partial_feed.html' with feed=feed %}
+                    {% endfor %}
+                </ul>
+                <div class="load">
+                    <img src="{{ STATIC_URL }}img/loading.gif">
+                </div>
+                <form method="get" action="{% url 'load' %}" id="load_feed" autocomplete="off">
+                    <input type="hidden" name="feed_source" id="feed_source" value="{{ page_user.pk }}">
+                    <input type="hidden" name="from_feed" value="{{ from_feed }}">
+                    <input type="hidden" name="page" value="{{ page }}">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

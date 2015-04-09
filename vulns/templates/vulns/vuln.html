@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{{ vuln.vulnerability }}{% endblock %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/vulns.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/vulns_render.css" rel="stylesheet">
+
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+    <script src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'vulns' %}">{% trans 'Vulnerabilities' %}</a></li>
+        <li class="vuln">{% trans 'Vulnerability' %}</li>
+    </ol>
+
+    <div class="page-header">
+
+        {% if perms.vulns.delete_vuln %}
+            <a href="{% url 'delete_vuln' vuln.pk %}" style="margin-left: 10px;"
+               class="btn btn-primary pull-right">
+                <span class="glyphicon glyphicon-remove"></span> {% trans 'Delete' %}
+            </a>
+        {% endif %}
+
+        {% if perms.vulns.change_vuln %}
+            <a href="{% url 'edit_vuln' vuln.pk %}" class="btn btn-primary pull-right">
+                <span class="glyphicon glyphicon-edit"></span> {% trans 'Edit' %}
+            </a>
+        {% endif %}
+
+
+    </div>
+    <article>
+        <h3 style="text-align: center">
+            <a href="{% url 'vuln' vuln.slug %}">{{ vuln.vulnerability }}</a>
+        </h3>
+
+        <div class="panel panel-default">
+            <div class="panel-heading "> {% trans 'Description' %}</div>
+
+            <div class="panel-body">
+                <div class="ckeditor">
+                    {{ vuln.description|safe }}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading"> {% trans 'Vulnerability Model' %}</div>
+
+            <div class=" panel-body centred">
+
+
+                <table class="vulnModel " border="1" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <td style="vertical-align:top; width:120px">
+                            <p><strong>{{ vuln.ref }}</strong></p>
+                        </td>
+                        <th colspan="4" style="vertical-align:top; width:483px">
+                            <p><strong>{{ vuln.vulnerability }}</strong></p>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align:top; width:120px">
+                            <p><strong>{% trans 'Elément impacté' %}</strong></p>
+                        </th>
+                        <td colspan="4" style="vertical-align:top; width:483px">
+
+                            {% if vuln.get_items_tags %}
+                                <div class="tags">
+                                    {% for tag in vuln.get_items_tags %}
+                                        <a href="{% url 'item_tag' tag %}"><span
+                                                class="label label-default">{{ tag }}</span></a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align:top; width:120px">
+                            <p><strong>{% trans 'Niveau de criticité' %}</strong></p>
+                        </th>
+                        <td colspan="2" style="vertical-align:top; width:235px">
+                            <p><strong> {% if vuln.get_severty %}{{ vuln.get_severty }}{% else %}n.a{% endif %}</strong>
+                            </p>
+                        </td>
+                        <th style="vertical-align:top; width:119px">
+                            <p><strong>{% trans 'Type' %}</strong></p>
+                        </th>
+                        <td style="vertical-align:top; width:128px">
+                            <p><strong>{{ vuln.type }}</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align:top; width:120px">
+                            <p><strong>{% trans 'Conséquences dexploitation' %}</strong></p>
+                        </th>
+                        <td colspan="2" style="vertical-align:top; width:235px">
+                            <p><strong>{{ vuln.exploitation_impact }}</strong></p>
+                        </td>
+                        <th style="vertical-align:top; width:119px">
+                            <p><strong>{% trans 'Complexité dexploitation' %}</strong></p>
+                        </th>
+                        <td style="vertical-align:top; width:128px">
+                            <p><strong>{{ vuln.exploitation_complexity }}</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top;" colspan="5" height="5px">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="danger" style="vertical-align:top; width:120px">
+                            <p><strong>{% trans 'Recommandation' %}</strong></p>
+                        </th>
+                        <td colspan="4" style="vertical-align:top; width:483px">
+                            {{ vuln.recommendation|safe }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align:top; width:120px">
+                            <p><strong>{% trans 'Complexité de mise en œuvre' %}</strong></p>
+                        </th>
+                        <td colspan="2" style="vertical-align:top; width:235px">
+                            <p><strong>{{ vuln.action_complexity }}</strong></p>
+                        </td>
+                        <th style="vertical-align:top; width:119px">
+                            <p><strong>{% trans 'Priorité de mise en œuvre' %}</strong></p>
+                        </th>
+                        <td style="vertical-align:top; width:128px">
+                            <p><strong>{% if vuln.get_action_priority %}{{ vuln.get_action_priority }}{% else %}
+                                n.a{% endif %}</strong></p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        <div class="info">
+            <span>{% trans 'Added ' %}</span>
+         <span class="date">
+            <span class="glyphicon glyphicon-calendar">
+            </span>
+            {{ vuln.create_date }}
+         </span>
+            <span>{% trans 'by ' %}</span>
+         <span class="user">
+                 <a href="{% url 'profile' vuln.create_user.username %}"><img
+                         src="{{ vuln.create_user.profile.get_picture }}"></a>
+                 <a href="{% url 'profile' vuln.create_user.username %}">{{ vuln.create_user.profile.get_screen_name }}</a>
+         </span>
+            {% if vuln.update_date %}
+                <span>{% trans 'Updated ' %}</span>
+                <span class="date">
+            <span class="glyphicon glyphicon-calendar">
+            </span>
+            {{ vuln.update_date }}
+         </span>
+                <span>{% trans 'by ' %}</span>
+                {% if vuln.update_user %}
+                    <span class="user">
+                    <a href="{% url 'profile' vuln.update_user.username %}"><img
+                            src="{{ vuln.update_user.profile.get_picture }}"></a>
+                    <a href="{% url 'profile' vuln.update_user.username %}"> {{ vuln.update_user.profile.get_screen_name }}</a>
+                {% else %}
+                    {% trans 'Adminnistrator' %}
+                {% endif %}
+            </span>
+            {% endif %}
+        </div>
+    </article>
+
+
+{% endblock main %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{{ client.name }}{% endblock %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/projects.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/project_render.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/jquery.Jcrop.min.css" rel="stylesheet">
+    <script src="{{ STATIC_URL }}js/jquery.Jcrop.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/projects.js"></script>
+    <script src="{{ STATIC_URL }}js/croplogo.js"></script>
+
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'projects' %}">{% trans 'Projects list' %}</a></li>
+        <li class="project">{% trans 'Client' %}</li>
+    </ol>
+
+    <article>
+    <div class="title">
+        <h2>
+            <a href="{% url 'client' client.pk %}">{{ client.name }}</a>
+        </h2>
+    </div>
+
+
+
+    <div class="client ">
+
+        <div class="panel panel-default">
+            <div class="panel-heading "> {% trans 'Description' %}</div>
+
+            <div class="panel-body">
+
+                <div class="pull-right">
+                    <img src="{{ client.get_picture }}" style="width: 150px; border-radius: 5px; margin-bottom: 1em;">
+
+
+                    <form enctype="multipart/form-data" method="post" action="{% url 'c_upload_picture' %}"
+                          id="picture-upload-form">
+                        {% csrf_token %}
+                        <input type="file" name="picture" style="display: none">
+                        <button type="button" class="btn btn-default"
+                                id="btn-upload-picture">{% trans 'Upload new logo' %}</button>
+                    </form>
+
+                </div
+                <ul>
+                    <li>
+                        {% trans 'Client name' %} : {{ client.name }}
+                    </li>
+                    <li>
+
+                        {% trans 'This Client have ' %} <span
+                            class="badge "> {{ client_projects.count }} </span>{% trans 'Projects' %}
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+
+
+        {% if uploaded_picture %}
+            <form method="post" action="{% url 'c_save_uploaded_picture' %}">
+                {% csrf_token %}
+                <div class="modal fade" id="modal-upload-picture">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">{% trans 'Crop Picture' %}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="selected-picture">
+                                    <p>{% trans 'Crop the client logo and then click on the' %}
+                                        <strong>{% trans 'Save Picture' %}</strong> {% trans 'button' %}</p>
+                                    <img src="{{ MEDIA_URL }}client_pictures/{{ client.pk }}_tmp.jpg?_={% now 'U' %}"
+                                         id="crop-picture">
+                                    <input type="hidden" id="x" name="x"/>
+                                    <input type="hidden" id="y" name="y"/>
+                                    <input type="hidden" id="w" name="w"/>
+                                    <input type="hidden" id="h" name="h"/>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $("#modal-upload-picture").modal();
+                                        window.history.pushState("", "", "/projects/client/{{ client.pk }}");
+                                    });
+                                </script>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary">{% trans 'Save changes' %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        {% endif %}
+
+    </div>
+
+
+
+    <div class="projects">
+        <div class="page-header">
+            <h1>{% trans 'Client project list' %}</h1>
+        </div>        {% for project in client_projects %}
+        {% include 'projects/partial_project.html' with project=project %}
+    {% empty %}
+        <h4 class="no-data">{% trans "No Project for this client" %}</h4>
+    {% endfor %}
+
+    </div>
+
+{% endblock main %}

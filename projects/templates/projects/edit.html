@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load jsonify %}
+
+{% block head %}
+    {{ form.media }}
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-1.9.0.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.textext.full.min.js"></script>
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'vulns' %}">{% trans 'Project List' %}</a></li>
+        <li><a href="/projects/{{ project.slug }}">{{ project.project }}</a></li>
+        <li class="vuln">{% trans 'Edit Vulnerability' %}</li>
+    </ol>
+    <form action="{% url 'p_edit_vuln' form.instance.pk %}" method="post" role="form">
+        {% csrf_token %}
+        {{ form.status }}
+        {% for field in form.visible_fields %}
+
+            {% if field.label == 'Affected item tags' %}
+
+                <div class="form-group{% if field.errors %} has-error{% endif %}">
+                    <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+                    <br/>
+
+                    <div class="col-md-5 popular-tags">
+                        {% for tag in tags %}
+                            <span style="margin-bottom: 10px" class="label label-default"> {{ tag }}
+                                <a href=" {% url 'delete_item_tag' tag  form.instance.pk %}"><span
+                                        class="glyphicon glyphicon-remove remove-feed"
+                                        title="{% trans 'Click to remove this tag' %}">
+
+                                    </span></a>
+                            </span>
+                        {% endfor %}
+                    </div>
+
+
+                    {{ field }}
+
+
+                    {% if field.help_text %}
+                        <span class="help-block">{{ field.help_text }}</span>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <label class="control-label">{{ error }}</label>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+
+                <div class="form-group{% if field.errors %} has-error{% endif %}">
+                    <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <span class="help-block">{{ field.help_text }}</span>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <label class="control-label">{{ error }}</label>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="form-group">
+            <button type="button" class="btn btn-primary publish">{% trans 'Publish' %}</button>
+            <button type="button" class="btn btn-default draft">{% trans 'Save Draft' %}</button>
+            <a href="{% url 'drafts' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+        </div>
+    </form>
+
+
+
+    <script type="text/javascript">
+        $('#id_tags')
+                .textext({
+                    plugins: 'tags prompt autocomplete', tagsItems:{{tagsliste|jsonify}}, prompt: '{% trans 'Add one... ' %} '
+                })
+                .bind('getSuggestions', function (e, data) {
+                    var list ={{tags|jsonify}},
+                            textext = $(e.target).textext()[0],
+                            query = (data ? data.query : '') || ''
+                            ;
+
+                    $(this).trigger(
+                            'setSuggestions',
+                            { result: textext.itemManager().filter(list, query) }
+                    );
+                })
+        ;
+        $('#id_tags').val('');
+
+    </script>
+
+
+{% endblock main %}

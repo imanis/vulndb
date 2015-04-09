@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} Add a Project{% endblock %}
+
+{% block head %}
+    <script src="{{ STATIC_URL }}js/projects.js"></script>
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'projects' %}">{% trans 'Projects' %}</a></li>
+        <li class="active">{% trans 'Add Project' %}</li>
+
+    </ol>
+    <form action="{% url 'start' %}" method="post" role="form">
+        {% csrf_token %}
+        {{ form.status }}
+        {% for field in form.visible_fields %}
+
+            {% if field.label == 'Client' %}
+                <a href="#add_client" class="btn btn-primary pull-right gglyphicon glyphicon-plus add_client_show_button"
+                   data-toggle="modal">
+                    <span type="button"></span>
+                </a>
+            {% endif %}
+
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="help-block">{{ field.help_text }}</span>
+                {% endif %}
+                {% for error in field.errors %}
+                    <label class="control-label">{{ error }}</label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+
+        <div class="form-group">
+            <button type="button" class="btn btn-primary publish">{% trans 'Save' %}</button>
+            <a href="{% url 'projects' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+        </div>
+    </form>
+
+
+    <div class="modal fade" id="add_client_modal_id">
+
+
+    </div>
+
+
+
+
+{% endblock main %}

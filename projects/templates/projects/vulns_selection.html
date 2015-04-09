@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} {% trans 'vulns selection' %} {% endblock %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/vulns.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/vulns_selection.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/vulns_selection.js"></script>
+
+
+
+    <link href="{{ STATIC_URL }}css/vulns.css" rel="stylesheet">
+
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/dataTables.tableTools.css">
+
+    <!-- DataTables-->
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/dataTables.tableTools.js"></script>
+
+
+{% endblock head %}
+{% block main %}
+    <div class="page-header">
+        <a href="{% url 'p_add_vuln' %}" class="btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-pencil"></span> {% trans 'Add unexisting vulnnerability' %}
+        </a>
+
+        <h1>{% trans 'Vulnerabilities Selection ' %} {{ project.project }}</h1>
+    </div>
+    </br>
+    {% if errorMsg %}
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ errorMsg }}
+            </div>
+    {% endif %}
+    </br>
+
+    {% if vulns %}
+
+        <span>
+
+    <p>{% trans ' To load new vulnerabilities to this project you can either enter the vulnerability Ref or select from the  Vulnerabilities Table' %}</p>
+
+    <form action="{% url 'load' %}" method="post" role="form" class="form-inline">
+        {% csrf_token %}
+
+        <label for="vref">{% trans 'Enter Vulnerability Ref ' %}</label>
+        <br/>
+        <input type="number" class="form-control" name="vref" id="vref" required="True" style="">
+        <input style="margin-top: 5px" type="submit" class="btn btn-primary "/>
+
+
+    </form>
+    </span>
+
+
+        </br>
+
+        <label> {% trans 'Or, Choose from The Vulnerability Table by selecting One or Multiple Vulnerabilities' %}</label>
+
+        </br></br>
+
+        <form action="{% url 'load' %}" method="post" role="form">
+
+
+            <div class="vulntable">
+                {% include 'vulns/vulns_partial_table.html' with vulns=vulns vulns_table_id='vulns_table_selection' %}
+            </div>
+
+            {% csrf_token %}
+            <div class="form-group">
+
+                {{ form.ids }}
+
+                <div style="text-align:center;">
+                    <button type="button"
+                            class="btn btn-primary load">{% trans 'Load selection' %}</button>
+                </div>
+            </div>
+        </form>
+        {% comment %}
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="vulns">
+                    <h3 class="page-header"> {% trans 'Vulnerabilities Table' %}</h3>
+
+                    <section class="vulns">
+                        <div id="vulns_div" class="table-responsive">
+                            <form action="{% url 'load' %}" method="post" role="form">
+
+                                <table class="table table-bordered  table-hover table-condensed" id="vulns_table">
+                                    <thead>
+                                    <tr>
+                                        <th>{% trans 'Ref' %}</th>
+                                        <th>{% trans 'Category' %}</th>
+                                        <th>{% trans 'Afected Item' %}</th>
+                                        <th>{% trans 'Vulnerability' %}</th>
+                                        <th>{% trans 'Severity' %}</th>
+                                        <th>{% trans 'Type' %}</th>
+                                        <th>{% trans 'Expl impact ' %}</th>
+                                        <th>{% trans 'Action priority ' %}</th>
+                                        <th>{% trans 'Action complexity ' %}</th>
+                                        <th>{% trans 'Date' %}</th>
+                                        <th>{% trans 'user' %}</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for vuln in vulns %}
+                                        <tr class="nRow">
+                                            <td><a href="{% url 'p_show_vuln' vuln.pk %}">{{ vuln.pk }}</a></td>
+                                            <td class="info">{{ vuln.category }}</td>
+                                            <td>
+                                                {% if vuln.get_items_tags %}
+                                                    <div class="tags">
+                                                        {% for tag in vuln.get_items_tags %}
+                                                            <a href="{% url 'item_tag' tag %}"><span
+                                                                    class="label label-default">{{ tag }}</span></a>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                            <td><a href="{% url 'vuln' vuln.slug %}">{{ vuln.vulnerability }}</a></td>
+                                            <td class="danger">{{ vuln.severity }}</td>
+                                            <td class="info">{{ vuln.type }}</td>
+                                            <td class="danger">{{ vuln.exploitation_impact }}</td>
+                                            <td>{{ vuln.action_priority }}</td>
+                                            <td>{{ vuln.action_complexity }}</td>
+                                            <td>{{ vuln.create_date | date:"m/d" }}</td>
+                                            <td>{{ vuln.create_user }}</td>
+                                            <td>
+                                                <a href="{% url 'edit_vuln' vuln.pk %}"
+                                                   class="glyphicon glyphicon-edit"></a>
+                                                <a href="{% url 'delete_vuln' vuln.pk %}"
+                                                   class="glyphicon glyphicon-remove"></a>
+                                            </td>
+                                        </tr>
+                                    {% empty %}
+
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                                {% csrf_token %}
+                                <div class="form-group">
+
+                                    {% for field in form.visible_fields %}
+                                        {{ field }}
+                                    {% endfor %}
+
+                                    <button type="button"
+                                            class="btn btn-primary load">{% trans 'Load selection' %}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+
+        </div>
+ {% endcomment %}
+    {% else %}
+        <h4 class="no-data">{% trans 'There is no published vulnerabilities yet' %}.
+            <a
+                    href="{% url 'add' %}">{% trans 'Be the first one to add' %}!</a>
+        </h4>
+
+
+    {% endif %}
+
+
+
+{% endblock main %}

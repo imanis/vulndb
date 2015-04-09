@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+		<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<h1>logo</h1>
+				</div>
+				<div class="top-nav">
+					<ul>
+						<li ><a href="{% url 'home' %}">Actualité</a></li>
+                        <li class="active"><a href="{% url 'jobs' %}">Nos métiers</a></li>
+                        <li><a href="{% url 'qualification' %}">Nos qualifications</a></li>
+                        <li><a href="{% url 'lnx' %}">Réalisation KNX</a></li>
+                        <li><a href="{% url 'company' %}">La société</a></li>
+                        <li><a href="{% url 'cantact' %}">Contact</a></li>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+			<!---End-header---->
+		<div class="content">
+				<!---start-services---->
+				<div class="services">
+					<div class="wrap">
+					  <div class="services-header">
+						<h3>Nos métiers</h3>
+					 </div>
+					   <div class="section group group">
+							<div class="listview_1_of_2 images_1_of_2">
+								<div class="listimg listimg_2_of_1">
+									  <img src="{{ STATIC_URL }}images/res.png">
+								</div>
+							    <div class="text list_2_of_1">
+									<h3><span>Courant </span> Fort</h3>
+									<h4>Sed ut perspiciatis undeaccusantium .</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. </p>
+									 <a class="button" href="#">En savoir</a>
+							   </div>
+						   </div>
+							<div class="listview_1_of_2 images_1_of_2">
+								<div class="listimg listimg_2_of_1">
+									  <img src="{{ STATIC_URL }}images/guid.png">
+								</div>
+								<div class="text list_2_of_1">
+									  <h3><span>Courant</span> Faible</h3>
+									  <h4>Sed ut perspiciatis undeaccusantium .</h4>
+									 		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. </p>
+									  <a class="button" href="#">En savoir</a>
+								</div>
+							</div>
+
+
+						</div>
+
+				  </div>
+				</div>
+				<!---End-services---->
+
+		</div>
+	  {% endblock main %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+ {% block head %}
+ <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/responsiveslides.css">
+<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}js/responsiveslides.min.js"></script>
+		  <script>
+		    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 1
+			      $("#slider1").responsiveSlides({
+			        maxwidth: 2500,
+			        speed: 600
+			      });
+			});
+		  </script>
+    {% endblock head %}
+
+
+
+
+    {% block main %}
+     <div class="header">
+                <div class="wrap">
+                <div class="logo">
+                    <h1>logo</h1>
+                </div>
+                <div class="top-nav">
+                    <ul>
+                        <li class="active"><a href="{% url 'home' %}">Actualité</a></li>
+                        <li ><a href="{% url 'jobs' %}">Nos métiers</a></li>
+                        <li><a href="{% url 'qualification' %}">Nos qualifications</a></li>
+                        <li><a href="{% url 'lnx' %}">Réalisation KNX</a></li>
+                        <li><a href="{% url 'company' %}">La société</a></li>
+                        <li><a href="{% url 'cantact' %}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+
+		<!--start-image-slider---->
+					<div class="image-slider">
+						<!-- Slideshow 1 -->
+					    <ul class="rslides" id="slider1">
+					      <li><img src="{{ STATIC_URL }}images/slider4.jpg" alt=""></li>
+					      <li><img src="{{ STATIC_URL }}images/slider2.jpg" alt=""></li>
+					      <li><img src="{{ STATIC_URL }}images/slider3.jpg" alt=""></li>
+					       <li><img src="{{ STATIC_URL }}images/slider1.jpg" alt=""></li>
+						 <!-- Slideshow 2 -->
+					</div>
+			<!--End-image-slider---->
+		<!---End-wrap---->
+		<div class="clear"> </div>
+		<!---start-content---->
+		<div class="content">
+			    <div class="content_top">
+			    	<div class="wrap">
+						<h1><a href="#">Global Electric & Domotique Solutions.</a></h1>
+						<p>Concéption et Réalisation Des Installations Eléctriques-Domotique et Immotique, </p>
+					</div>
+			    </div>
+			<div class="content-grids">
+				<div class="wrap">
+				 <div class="grid">
+					<a href=""><img src="{{ STATIC_URL }}images/grids-img1.jpg" title="image-name" /></a>
+					<h3>Nos métiers</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
+					<a class="button" href="#">En savoir</a>
+				</div>
+				<div class="grid">
+					<a href=""><img src="{{ STATIC_URL }}images/grids-img2.jpg" title="image-name" /></a>
+					<h3>Nos qualifications</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
+					<a class="button" href="#">En savoir</a>
+				</div>
+				<div class="grid last-grid">
+					<a href=""><img src="{{ STATIC_URL }}images/grids-img3.jpg" title="image-name" /></a>
+					<h3>NOS PARTENAIRES</h3>
+					<p>Lorem ipsum dolor sit amet consectetur adiing elit. In volutpat luctus eros ac placerat. Quisque erat metus facilisis non feu,aliquam hendrerit quam. Donec ut lectus vel dolor adipiscing tincnt.</p>
+					<a class="button" href="#">En savoir</a>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		 </div>
+
+
+		</div>
+		<!---End-content---->
+		<div class="clear"> </div>
+        {% endblock main %}
+
+
+
+
+

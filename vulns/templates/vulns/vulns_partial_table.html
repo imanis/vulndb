@@ -1,0 +1,152 @@
+{% load i18n %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/vulns.css" rel="stylesheet">
+
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/dataTables.tableTools.css">
+
+    <!-- DataTables-->
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/dataTables.tableTools.js"></script>
+
+
+{% endblock head %}
+
+{% if vulns %}
+
+
+
+    <div class="row">
+        <div class="col-md-12  ">
+            <section class="vulns">
+                <div class="panel" id="vulns_div">
+                    <div class="table-responsive">
+                        <table class="table table-bordered  table-hover table-condensed " id="{{ vulns_table_id }}">
+                            <thead>
+                            <tr>
+                                {% if vulns_table_id == 'vulns_table_selection' %}
+                                    <th></th>
+                                {% endif %}
+                                <th>{% trans 'Ref' %}</th>
+                                <th>{% trans 'Category' %}</th>
+                                <th>{% trans 'Afected Item' %}</th>
+                                <th>{% trans 'Vulnerability' %}</th>
+                                <th>{% trans 'Severity' %}</th>
+                                <th>{% trans 'Type' %}</th>
+                                <th>{% trans 'Expl impact ' %}</th>
+                                <th>{% trans 'Action priority ' %}</th>
+                                <th>{% trans 'Action complexity ' %}</th>
+                                <th>{% trans 'Date' %}</th>
+                                <th>{% trans 'user' %}</th>
+                                {% if show_action %}
+                                    <th></th>
+                                {% endif %}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for vuln in vulns %}
+                                <tr>
+                                    {% if vulns_table_id == 'vulns_table_selection' %}
+                                        <td class="selection_item">
+                                            <span class=" glyphicon glyphicon-unchecked"></span>
+                                        </td>
+                                    {% endif %}
+
+                                    <td><a href="{% url 'vuln' vuln.slug %}">{{ vuln.pk }}</a></td>
+                                    <td class="info">{{ vuln.category }}</td>
+                                    <td>
+                                        {% if vuln.get_items_tags %}
+                                            <div class="tags">
+                                                {% for tag in vuln.get_items_tags %}
+                                                    <a href=" {% url 'item_tag' tag %} "><span
+                                                            class="label label-default">{{ tag }}</span></a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </td>
+                                    <td><a href="{% url 'vuln' vuln.slug %}">{{ vuln.vulnerability }}</a></td>
+                                    <td class="danger">
+                                        {% if vuln.get_severty %}{{ vuln.get_severty }}{% else %}n.a{% endif %} </td>
+                                    <td class="info">{{ vuln.type }}</td>
+                                    <td class="danger">
+                                        {% if vuln.exploitation_impact %}{{ vuln.exploitation_impact }}{% else %}
+                                            n.a{% endif %}</td>
+                                    <td>{% if vuln.get_action_priority %}{{ vuln.get_action_priority }}{% else %}
+                                        n.a{% endif %}</td>
+                                    <td>{% if vuln.action_complexity %}{{ vuln.action_complexity }}{% else %}
+                                        n.a{% endif %}</td>
+                                    <td title="{{ vuln.create_date }}">{% if vuln.create_date %}{{ vuln.create_date | date:"m/d" }}{% else %}
+                                        n.a{% endif %}</td>
+                                    <td>{% if vuln.create_user %}
+                                        <a href="{% url 'profile' vuln.create_user.username %}">
+                                            {{ vuln.create_user.profile.get_screen_name }}</a>{% else %}
+                                        {% trans 'Administrator' %}{% endif %}</td>
+                                    {% if show_action %}
+                                        <td>
+                                            {% if perms.vulns.change_vuln %}
+
+                                                <a href="{% url 'edit_vuln' vuln.pk %}"
+                                                   class="glyphicon glyphicon-edit"></a>
+                                            {% endif %}
+
+                                            {% if user == vuln.create_user and perms.vulns.delete_vuln %}
+                                                <a href="{% url 'delete_vuln' vuln.pk %}"
+                                                   class="glyphicon glyphicon-remove"></a>
+                                            {% endif %}
+                                        </td>
+                                    {% endif %}
+                                </tr>
+
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+
+    <!--
+      <div class="row">
+        <div class="col-md-12">
+          {% include 'paginator.html' with paginator=vulns %}
+        </div>
+      </div>
+    -->
+
+    <script>
+        $(document).ready(function () {
+            $('#vulns_table').DataTable(
+                    {
+                        "dom": 'T<"clear">lfrtip',
+                        "tableTools": {
+                            "sSwfPath": "/static/swf/copy_csv_xls_pdf.swf",
+                            "aButtons": [
+                                "copy",
+                                "print",
+                                {
+                                    "sExtends": "collection",
+                                    "sButtonText": "Save",
+                                    "aButtons": [ "csv", "xls", "pdf" ]
+                                }
+                            ]
+                        }
+                    }
+            );
+        });
+    </script>
+
+{% else %}
+    <h4 class="no-data">{% trans 'There is no published vulnerabilities yet' %}. <a
+            href="{% url 'add' %}">{% trans 'Be the first one to Add' %}!</a></h4>
+
+{% endif %}

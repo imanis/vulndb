@@ -1,0 +1,39 @@
+{% load i18n %}
+{% block head %}
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+    {{ form.media }}
+{% endblock head %}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add new Client</h4>
+        </div>
+        <form role="form">
+            <div class="modal-body">
+                  {% csrf_token %}
+                        {{ form.status }}
+                        {% for field in form.visible_fields %}
+                            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                                <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <span class="help-block">{{ field.help_text }}</span>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <label class="control-label">{{ error }}</label>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <a class="btn btn-primary add_category_submit_button">
+                        Add
+                        <span type="button"></span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

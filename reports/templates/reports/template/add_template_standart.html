@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load jsonify %}
+{% block title %} Add a Template{% endblock %}
+
+{% block head %}
+
+
+
+     <script src="{{ STATIC_URL }}js/template.js"></script>
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'templates'  %}">{% trans 'Templates' %}</a></li>
+        <li class="active">{% trans 'Add Template' %}</li>
+
+    </ol>
+    <form action="{% url 'add_template_standart'  %}" method="post" role="form">
+        {% csrf_token %}
+        {{ form.status }}
+        {% for field in form.visible_fields %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+
+                {{ field }}
+                {% if field.label == 'Font' %}
+
+                    <a class="btn btn-primary pull-right gglyphicon glyphicon-plus add_font_show_button"
+                       data-toggle="modal"
+                       data-target=".add_font"> <span type="button"></span>
+                    </a>
+                {% endif %}
+
+                {% if field.label == 'Front cover' %}
+
+                    <a class="btn btn-primary pull-right gglyphicon glyphicon-plus add_frontcover_show_button"
+                       data-toggle="modal"
+                       data-target=".add_frontcover"> <span type="button"></span>
+                    </a>
+                {% endif %}
+                {% if field.label == 'Footer' %}
+
+                    <a class="btn btn-primary pull-right gglyphicon glyphicon-plus add_footer_show_button"
+                       data-toggle="modal"
+                       data-target=".add_footer"> <span type="button"></span>
+                    </a>
+                {% endif %}
+                {% if field.label == 'Header' %}
+
+                    <a class="btn btn-primary pull-right gglyphicon glyphicon-plus add_header_show_button"
+                       data-toggle="modal"
+                       data-target=".add_header"> <span type="button"></span>
+                    </a>
+                {% endif %}
+                {% if field.label == 'Font size' %}
+
+                    <a class="btn btn-primary pull-right gglyphicon glyphicon-plus add_fontsize_show_button"
+                       data-toggle="modal"
+                       data-target=".add_fontsize"> <span type="button"></span>
+                    </a>
+                {% endif %}
+
+                {% if field.help_text %}
+                    <span class="help-block">{{ field.help_text }}</span>
+                {% endif %}
+                {% for error in field.errors %}
+                    <label class="control-label">{{ error }}</label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary publish">{% trans 'Save' %}</button>
+
+            <a href="{% url 'templates' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+        </div>
+    </form>
+
+<div class="modal fade" id="add_frontcover_modal_id">
+
+</div>
+<div class="modal fade" id="add_font_modal_id">
+
+</div>
+<div class="modal fade" id="add_footer_modal_id">
+
+</div>
+<div class="modal fade" id="add_header_modal_id">
+
+</div>
+
+<div class="modal fade" id="add_fontsize_modal_id">
+
+</div>
+
+{% endblock main %}

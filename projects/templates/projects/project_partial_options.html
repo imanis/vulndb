@@ -1,0 +1,63 @@
+{% load i18n %}
+{% load humanize %}
+
+
+<div class="options_tools" data-toggle="collapse" data-target="#toolsbody">
+    <div>
+        <div id="toolspanel" class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle">
+                        {% trans 'Options' %}
+                        <span class="glyphicon pull-right glyphicon-chevron-up"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="toolsbody" class="panel-collapse  in" style="height: auto;">
+
+                <a href="" class="btn btn-primary options_button">
+                    <span class="glyphicon glyphicon-folder-open"></span> {% trans "Generate repport" %}
+                </a>
+                <a href="{% url 'add_report'  %}" class="btn btn-primary options_button">
+                    <span class="glyphicon glyphicon-folder-open"></span> {% trans "Add repport" %}
+                </a>
+                <a href="{% url 'add_report'  %}" class="btn btn-primary options_button">
+                    <span class="glyphicon glyphicon-folder-open"></span> {% trans "Edite repport" %}
+                </a>
+
+
+
+                {% if project.create_user == user %}
+                    <a href="{% url 'remove_project' project.pk %}"
+                       class="btn btn-default primary options_button pull-right">
+                        <span class="glyphicon glyphicon-trash"></span> {% trans "Delete Project" %}
+                    </a>
+                    <a href="{% url 'modify_project' project.pk %}"
+                       class="btn btn-default primary options_button pull-right">
+                        <span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Project" %}
+                    </a>
+
+                    {% if project.status == 'A' %}
+                        <a href="{% url 'archive_project' project.pk %}"
+                           class="btn btn-default primary options_button pull-right">
+                            <span class="glyphicon glyphicon-file"></span> {% trans "Archive Project" %}
+                        </a>
+                    {% elif project.status == 'R' %}
+                        <a href="{% url 'activate_project' project.pk %}"
+                           class="btn btn-default primary options_button pull-right">
+                            <span class="glyphicon glyphicon-ok"></span> {% trans "Activate Project" %}
+                        </a>
+                    {% endif %}
+
+                    <a href="{% url 'preferences_project' project.pk 'severity' %}"
+                       class="btn btn-default options_button    pull-right" style="margin-right: 5px">
+                        <span class="glyphicon glyphicon-wrench"></span> {% trans "Preferences" %}
+                    </a>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+

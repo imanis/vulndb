@@ -1,0 +1,40 @@
+{% load i18n %}
+
+<h2>{% trans 'Reports' %}</h2>
+{% if results %}
+    <ul class="article-results">
+        {% for project in results %}
+            <li project-slug="{{ project.slug }}">
+                <h4><a href="{% url 'project' project.slug %}">{{ project.project }}</a></h4>
+
+                <div class="info">
+          <span class="date">
+            <span class="glyphicon glyphicon-calendar"></span>
+            {{ article.create_date }}
+          </span>
+          <span class="user">
+            <a href="{% url 'profile' project.create_user.username %}"><img
+                    src="{{ project.create_user.profile.get_picture }}"></a>
+            <a href="{% url 'profile' project.create_user.username %}">{{ project.create_user.profile.get_screen_name }}</a>
+          </span>
+                </div>
+                <div class="project-content">
+
+                    <h5>
+                        {% trans 'A Project for ' %}:
+                        <a href="/projects/client/{{ project.client.id }}">{{ project.client.name }} </a>
+                        {% trans ' with ' %}:
+                        <span>{{ project.get_vulns_count }}</span>
+                        <span class="glyphicon glyphicon-fire"></span>{% trans 'Vulnerabilities' %}
+
+                        <span>{{ project.get_best_pra_count }}</span>
+                        <span class="glyphicon glyphicon-leaf"></span>{% trans 'Best practice' %}
+
+                    </h5>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h4 class="no-result">{% trans 'No reports found' %} </h4>
+{% endif %}

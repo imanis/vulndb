@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:hdr xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:o="urn:schemas-microsoft-com:office:office"
+       xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+       xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml"
+       xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+       xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+       xmlns:w10="urn:schemas-microsoft-com:office:word"
+       xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+       xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+       xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+       xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+       xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+       xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 wp14">
+    <w:tbl>
+        <w:tblPr>
+            <w:tblW w:w="0" w:type="auto"/>
+            <w:tblBorders>
+                <w:top w:vala="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+            </w:tblBorders>
+            <w:tblLook w:val="01E0" w:firstRow="1" w:lastRow="1" w:firstColumn="1" w:lastColumn="1" w:noHBand="0"
+                       w:noVBand="0"/>
+        </w:tblPr>
+        <w:tblGrid>
+            <w:gridCol w:w="2808"/>
+            <w:gridCol w:w="3134"/>
+            <w:gridCol w:w="2946"/>
+        </w:tblGrid>
+        <w:tr w:rsidR="001F59B2" w:rsidRPr="00A408E3" w:rsidTr="00895DA0">
+            <w:trPr>
+                <w:trHeight w:val="1273"/>
+            </w:trPr>
+            <w:tc>
+                <w:tcPr>
+                    <w:tcW w:w="2808" w:type="dxa"/>
+                </w:tcPr>
+                <w:p w:rsidR="001F59B2" w:rsidRPr="00A408E3" w:rsidRDefault="00112E54" w:rsidP="00895DA0">
+                    <w:pPr>
+                        <w:pStyle w:val="En-tte"/>
+                        <w:jc w:val="center"/>
+                    </w:pPr>
+                    <w:r>
+                        <w:rPr>
+                            <w:noProof/>
+                            <w:lang w:eastAsia="fr-FR"/>
+                        </w:rPr>
+                        <w:drawing>
+                            <wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="00DB49DF"
+                                       wp14:editId="77AD9DA4">
+                                <wp:extent cx="1476375" cy="770890"/>
+                                <wp:effectExtent l="19050" t="0" r="9525" b="0"/>
+                                <wp:docPr id="52" name="Picture 11" descr="Athena-Final"/>
+                                <wp:cNvGraphicFramePr>
+                                    <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+                                                         noChangeAspect="1"/>
+                                </wp:cNvGraphicFramePr>
+                                <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                                    <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                        <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                            <pic:nvPicPr>
+                                                <pic:cNvPr id="0" name="Picture 11" descr="Athena-Final"/>
+                                                <pic:cNvPicPr>
+                                                    <a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>
+                                                </pic:cNvPicPr>
+                                            </pic:nvPicPr>
+                                            <pic:blipFill>
+                                                <a:blip r:embed="rId1"/>
+                                                <a:srcRect/>
+                                                <a:stretch>
+                                                    <a:fillRect/>
+                                                </a:stretch>
+                                            </pic:blipFill>
+                                            <pic:spPr bwMode="auto">
+                                                <a:xfrm>
+                                                    <a:off x="0" y="0"/>
+                                                    <a:ext cx="1476375" cy="770890"/>
+                                                </a:xfrm>
+                                                <a:prstGeom prst="rect">
+                                                    <a:avLst/>
+                                                </a:prstGeom>
+                                                <a:noFill/>
+                                                <a:ln w="9525">
+                                                    <a:noFill/>
+                                                    <a:miter lim="800000"/>
+                                                    <a:headEnd/>
+                                                    <a:tailEnd/>
+                                                </a:ln>
+                                            </pic:spPr>
+                                        </pic:pic>
+                                    </a:graphicData>
+                                </a:graphic>
+                            </wp:inline>
+                        </w:drawing>
+                    </w:r>
+                </w:p>
+            </w:tc>
+            <w:tc>
+                <w:tcPr>
+                    <w:tcW w:w="3134" w:type="dxa"/>
+                    <w:vAlign w:val="center"/>
+                </w:tcPr>
+                <w:p w:rsidR="001F59B2" w:rsidRPr="00B65DCD" w:rsidRDefault="00112E54" w:rsidP="004A7BB6">
+                    <w:pPr>
+                        <w:pStyle w:val="En-tte"/>
+                        <w:jc w:val="center"/>
+                        <w:rPr>
+                            <w:sz w:val="20"/>
+                        </w:rPr>
+                    </w:pPr>
+                    <w:r w:rsidRPr="00B4524D">
+                        <w:rPr>
+                            <w:sz w:val="20"/>
+                        </w:rPr>
+                        <w:t xml:space="preserve">Tests d'intrusion </w:t>
+                    </w:r>
+                    <w:r>
+                        <w:rPr>
+                            <w:sz w:val="20"/>
+                        </w:rPr>
+                        <w:t>in</w:t>
+                    </w:r>
+                    <w:r w:rsidRPr="00B4524D">
+                        <w:rPr>
+                            <w:sz w:val="20"/>
+                        </w:rPr>
+                        <w:t xml:space="preserve">ternes </w:t>
+                    </w:r>
+                </w:p>
+                <w:p w:rsidR="001F59B2" w:rsidRPr="00B65DCD" w:rsidRDefault="00112E54" w:rsidP="004A7BB6">
+                    <w:pPr>
+                        <w:pStyle w:val="En-tte"/>
+                        <w:jc w:val="center"/>
+                        <w:rPr>
+                            <w:rFonts w:cs="Arial"/>
+                            <w:sz w:val="20"/>
+                        </w:rPr>
+                    </w:pPr>
+                    <w:r>
+                        <w:rPr>
+                            <w:rFonts w:cs="Arial"/>
+                            <w:sz w:val="20"/>
+                        </w:rPr>
+                        <w:t>Rapport technique</w:t>
+                    </w:r>
+                </w:p>
+            </w:tc>
+            <w:tc>
+                <w:tcPr>
+                    <w:tcW w:w="2946" w:type="dxa"/>
+                </w:tcPr>
+                <w:p w:rsidR="001F59B2" w:rsidRPr="00A408E3" w:rsidRDefault="00112E54" w:rsidP="004A7BB6">
+                    <w:pPr>
+                        <w:pStyle w:val="En-tte"/>
+                        <w:jc w:val="center"/>
+                    </w:pPr>
+                    <w:r w:rsidRPr="00895DA0">
+                        <w:rPr>
+                            <w:noProof/>
+                            <w:lang w:eastAsia="fr-FR"/>
+                        </w:rPr>
+                        <w:drawing>
+                            <wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="5A858E2B"
+                                       wp14:editId="50ABFB16">
+                                <wp:extent cx="1706880" cy="641551"/>
+                                <wp:effectExtent l="19050" t="0" r="7620" b="0"/>
+                                <wp:docPr id="53" name="Picture 1"/>
+                                <wp:cNvGraphicFramePr>
+                                    <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+                                                         noChangeAspect="1"/>
+                                </wp:cNvGraphicFramePr>
+                                <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                                    <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                        <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                            <pic:nvPicPr>
+                                                <pic:cNvPr id="0" name="Picture 1" descr="C:\Houda\Houda\BCT.jpg"/>
+                                                <pic:cNvPicPr>
+                                                    <a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>
+                                                </pic:cNvPicPr>
+                                            </pic:nvPicPr>
+                                            <pic:blipFill>
+                                                <a:blip r:embed="rId2">
+                                                    <a:extLst>
+                                                        <a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+                                                            <a14:useLocalDpi
+                                                                    xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main"
+                                                                    val="0"/>
+                                                        </a:ext>
+                                                    </a:extLst>
+                                                </a:blip>
+                                                <a:stretch>
+                                                    <a:fillRect/>
+                                                </a:stretch>
+                                            </pic:blipFill>
+                                            <pic:spPr bwMode="auto">
+                                                <a:xfrm>
+                                                    <a:off x="0" y="0"/>
+                                                    <a:ext cx="1710906" cy="643064"/>
+                                                </a:xfrm>
+                                                <a:prstGeom prst="rect">
+                                                    <a:avLst/>
+                                                </a:prstGeom>
+                                                <a:noFill/>
+                                                <a:ln w="9525">
+                                                    <a:noFill/>
+                                                    <a:miter lim="800000"/>
+                                                    <a:headEnd/>
+                                                    <a:tailEnd/>
+                                                </a:ln>
+                                            </pic:spPr>
+                                        </pic:pic>
+                                    </a:graphicData>
+                                </a:graphic>
+                            </wp:inline>
+                        </w:drawing>
+                    </w:r>
+                </w:p>
+            </w:tc>
+        </w:tr>
+    </w:tbl>
+    <w:p w:rsidR="001F59B2" w:rsidRPr="00A408E3" w:rsidRDefault="00DF4902" w:rsidP="00A408E3">
+        <w:pPr>
+            <w:pStyle w:val="En-tte"/>
+        </w:pPr>
+    </w:p>
+</w:hdr>

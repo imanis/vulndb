@@ -1,0 +1,77 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>G.E.D.S</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css"  media="all" />
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+
+
+    {% block body %}
+
+
+
+
+        {% block main %}
+        {% endblock main %}
+
+{% endblock body %}
+
+<div class="footer">
+            <div class="wrap">
+            <div class="footer-grids">
+                <div class="footer-grid">
+                    <h3>Horaires d'ouverture</h3>
+                    <ul>
+                        <li><a href="#">Du lundi au samedi</a></li>
+                        <li><a href="#">9h00 - 12h00</a></li>
+                        <li><a href="#">Après-midi : 13h30 - 18h00</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-grid" style="visibility: hidden">
+                    <h3>RECENT POSTS</h3>
+                    <ul>
+                        <li><a href="#">Vestibulum felis</a></li>
+                        <li><a href="#">Mauris at tellus</a></li>
+                        <li><a href="#">Donec ut lectus</a></li>
+                        <li><a href="#">vitae interdum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid" style="visibility: hidden">
+                    <h3>USEFUL INFO</h3>
+                    <ul>
+                        <li><a href="#">Hendrerit quam</a></li>
+                        <li><a href="#">Amet consectetur </a></li>
+                        <li><a href="#">Iquam hendrerit</a></li>
+                        <li><a href="#">Donec ut lectus </a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid footer-lastgrid">
+                    <h3>CONTACT US</h3>
+                    <p>Pelleesque conquat dignissim lacus quis altrcies.</p>
+                    <div class="footer-grid-address">
+                        <p>Tel.800-255-9999</p>
+                        <p>Fax: 1234 568</p>
+                        <p>Email:<a class="email-link" href="#">info(at)yourcompany.com</a></p>
+                    </div>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            </div>
+        </div>
+        <!---End-footer---->
+        <div class="clear"> </div>
+        <div class="copy-right">
+            <p>Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+        </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'vulns' %} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <div class="page-header">
+
+        {% if perms.vulns.add_vuln %}
+            <a href="{% url 'add' %}" class="btn btn-primary pull-right">
+                <span class="glyphicon glyphicon-pencil"></span> {% trans 'Add vulnnerability' %}
+            </a>
+
+
+            <a href="{% url 'drafts' %}" class="btn btn-default pull-right"
+               style="margin-right: .8em">{% trans 'Drafts' %}</a>
+
+        {% endif %}
+
+        <a href="{% url 'preferences' 'severity' %}" class="btn btn-default pull-right" style="margin-right: .8em">
+            <span class="glyphicon glyphicon-cog"></span>{% trans 'Global Preference' %}
+        </a>
+
+
+        <a href="{% url 'vulns' %}"><h1>{% trans 'Vulnerabilities ' %}</h1></a>
+    </div>
+
+
+    <h5>
+        <span class="glyphicon glyphicon-info-sign"></span>
+        {% trans 'Here you can find all vulnerabilities added to the database by VulnDB Administrators' %}
+    </h5>
+
+
+
+    {% if vulns %}
+
+        <div class="col-md-4 popular-tags">
+            <h5>{% trans 'Popular Categories' %}</h5>
+            {% for cat, count in popular_categories %}
+                <a href="{% url 'index_category' cat %}"><span class="label label-default">{{ count }} {{ cat }}</span></a>
+            {% endfor %}
+        </div>
+        <div class="col-md-4 popular-tags">
+            <h5>{% trans 'Popular Vulnerabilities Types' %}</h5>
+            {% for type, count in popular_types %}
+                <a href="{% url 'index_type' type %}"><span
+                        class="label label-default">{{ count }} {{ type }}</span></a>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4 popular-tags">
+            <h5>{% trans 'Popular Vulnerabilities Natures' %}</h5>
+            {% for nature, count in popular_natures %}
+                <a href="{% url 'index_nature' nature %}"><span
+                        class="label label-default">{{ count }} {{ nature }}</span></a>
+            {% endfor %}
+        </div>
+
+        </br></br></br></br></br>
+
+    {% endif %}
+
+    <div class="vulntable">
+        {% include 'vulns/vulns_partial_table.html' with vulns=vulns popular_categories=popular_categories popular_types=popular_types popular_natures=popular_natures vulns_table_id='vulns_table' show_action='true' %}
+    </div>
+
+
+{% endblock main %}

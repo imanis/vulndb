@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load get_severity_tag %}
+{% load get_priority_tag %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language as CURRENT_LANGUAGE %}
+{% block title %}Vulns Settings{% endblock %}
+{% block head %}
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.bootstrap.css">
+    <!-- DataTables-->
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/dataTables.bootstrap.js"></script>
+    <!-- td Color+ Rotation-->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/vulns_severity_action.css">
+{% endblock head %}
+
+
+
+{% block main %}
+    <div class="page-header">
+        <h1>{% trans 'Vulnerabilities Settings' %}</h1>
+    </div>
+    <div class="row" style="margin-top: 2em">
+        <div class="col-md-3">
+            {% include 'vulns/partial_preferences_menu.html' %}
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if perms.vulns.change_vulnseveritymatrix %}
+            <h4 style="margin-top: 0; ">{% trans 'Edit Global CVSS levels and matrices for all the Database' %}</h4>
+        {% else %}
+            <h4 style="margin-top: 0; ">{% trans 'View Global CVSS levels and matrices for all the Database' %}</h4>
+
+        {% endif %}
+        <div class="tab-content col-md-7 ">
+
+
+            <div class="tab-pane {% if etat  == 'severity' %}active{% endif %}" id="tab_a">
+                {% if exploitation_complexity %}
+                    <h4 style="text-align: center; margin-bottom: 20px;">{% trans 'Matrix calculation of Severity Level' %}</h4>
+                    <div class="table-responsive">
+                        {% with exploitation_complexity|first as first_object %}
+                            <table class="table  " id="serevity_table">
+                                <tbody>
+                                {% for complexity in exploitation_complexity %}
+                                    <tr>
+                                    {% if complexity.id == first_object.id %}
+                                        <td bgcolor="#ADA5A5" rowspan="{{ exploitation_complexity|length }}"
+                                            class='rotation'><h4
+                                                class='vertical'>{% trans 'Action Complexity levels' %}</h4>
+                                        </td>
+                                    {% endif %}
+                                    <th>{{ complexity.exploitation_complexity }}</th>
+                                    {% for impact in exploitation_impact %}
+                                        {% get_severity_tag complexity.id impact.id as severity %}
+                                        <td bgcolor="{{ severity.severity.color }}">
+
+                                            <a href="#" {% if perms.vulns.change_vulnseveritymatrix %}
+                                               data-toggle="modal" data-target=".changeseverity"
+                                               id="{{ severity.id }}"
+                                               onclick="changeSeverity(this)"  {% endif %}> <font
+                                                    color="black">{{ severity.severity }}</font></a>
+
+                                        </td>
+                                    {% endfor %}
+                                {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <th>Level</th>
+                                    {% for impact in exploitation_impact %}
+                                        <th>{{ impact.exploitation_impact }}</th>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td style="border:0"></td>
+                                    <td></td>
+                                    <td bgcolor="#ADA5A5" align="center" colspan="{{ exploitation_impact|length }}">
+                                        <h4>{% trans 'Exploitation Impact levels' %}</h4></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        {% endwith %}
+                    </div>
+                {% else %}
+                    <h3>There is no published Matrix yet.</h3>
+                {% endif %}
+                {% include 'vulns/matrix/partial_exploitation_impact.html' %}
+                {% include 'vulns/matrix/partial_exploitation_complexity.html' %}
+                {% include 'vulns/matrix/partial_severity.html' %}
+
+
+            </div>
+            <div class="tab-pane  {% if etat == 'priority' %}active{% endif %} " id="tab_b">
+                {% if action_complexity %}
+                    <h4 style="text-align: center; margin-bottom: 20px;">{% trans 'Matrix calculation of Action Priority ' %}</h4>
+                    <div class="table-responsive">
+                        {% with action_complexity|first as first_object %}
+                            <table class="table  " id="priority_table">
+                                <tbody>
+                                {% for action in action_complexity %}
+                                    <tr>
+                                    {% if action.id == first_object.id %}
+                                        <td bgcolor="#ADA5A5" rowspan="{{ action_complexity|length }}"
+                                            class='rotation2'><h4
+                                                class='vertical2'>{% trans 'Action Complexity levels' %}</h4></td>
+                                    {% endif %}
+                                    <th>{{ action.action_complexity }}</th>
+                                    {% for severity in severity_liste %}
+                                        {% get_priority_tag action.id severity.id as priority %}
+                                        <td bgcolor="{{ priority.action_priority.color }}">
+                                            <a href="#" {% if perms.vulns.change_vulnactionprioritymatrix %}
+                                               data-toggle="modal" data-target=".changepriority"
+                                               id="{{ priority.id }}" onclick="changePriority(this)"
+                                            {% endif %}> <font
+                                                    color="black">{{ priority.action_priority }}</font></a>
+                                        </td>
+                                    {% endfor %}
+                                {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <th>Level</th>
+                                    {% for severity in severity_liste %}
+                                        <th>{{ severity.severity }}</th>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td style="border:0"></td>
+                                    <td></td>
+                                    <td bgcolor="#ADA5A5" align="center" colspan="{{ exploitation_impact|length }}">
+                                        <h4>{% trans 'Severity levels' %}</h4></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        {% endwith %}
+                    </div>
+                {% else %}
+                    <h3>There is no published Matrix yet.</h3>
+                {% endif %}
+                {% include 'vulns/matrix/partial_action_priority.html' %}
+                {% include 'vulns/matrix/partial_action_complexity.html' %}
+
+            </div>
+
+
+            <div class="modal fade changepriority" tabindex="-1" role="dialog" aria-labelledby="smallModal"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">{% trans 'Change Action Priority' %}</h4>
+                        </div>
+                        <form name="formaction" role="form" class="form-horizontal" method="post" action="">
+                            {% csrf_token %}
+                            <div class="modal-body">
+                                {{ formAction }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary">{% trans 'Change' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade changeseverity" tabindex="-1" role="dialog" aria-labelledby="smallModal"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">{% trans 'Change Severity Level' %}</h4>
+                        </div>
+                        <form name="formseverity" role="form" class="form-horizontal" method="post" action="">
+                            {% csrf_token %}
+                            <div class="modal-body">
+                                {{ formServity }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">{% trans 'Close' %}</button>
+                                <button type="submit" class="btn btn-primary">{% trans 'Change' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                function changeSeverity(e) {
+                    var url = "{% url 'change_serevity' 1 %}";
+                    url = url.replace('1', e.id);
+                    document.formseverity.action = url;
+                }
+            </script>
+            <script type="text/javascript">
+                function changePriority(e) {
+                    var url = "{% url 'change_action' 1 %}";
+                    url = url.replace('1', e.id);
+                    document.formaction.action = url;
+                }
+            </script>
+        </div>
+    </div>
+{% endblock main %}

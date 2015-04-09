@@ -1,0 +1,43 @@
+{% load i18n %}
+
+<div class="list-group">
+
+    <a href="{% url 'search' %}?q={{ querystring }}&type=feed"
+       class="list-group-item{% if active == 'feed' %} active{% endif %}">
+        <span>{% trans 'Feed' %}</span>
+        <span class="badge">{{ count.feed }}</span>
+    </a>
+    <a href="{% url 'search' %}?q={{ querystring }}&type=vulns"
+       class="list-group-item{% if active == 'vulns' %} active{% endif %}">
+        <span>{% trans 'Vulneabilities' %}</span>
+        <span class="badge">{{ count.vulns }}</span>
+    </a>
+    <a href="{% url 'search' %}?q={{ querystring }}&type=vulnsinst"
+       class="list-group-item{% if active == 'vulnsinst' %} active{% endif %}">
+        <span>{% trans 'Vulneabilities Instances' %}</span>
+        <span class="badge">{{ count.vulnsinst }}</span>
+    </a>
+    <a href="{% url 'search' %}?q={{ querystring }}&type=projects"
+       class="list-group-item{% if active == 'projects' %} active{% endif %}">
+        <span>{% trans 'Projects' %}</span>
+        <span class="badge">{{ count.projects }}</span>
+    </a>
+
+    <a href="{% url 'search' %}?q={{ querystring }}&type=clients"
+       class="list-group-item{% if active == 'clients' %} active{% endif %}">
+        <span>{% trans 'Clients' %}</span>
+        <span class="badge">{{ count.clients }}</span>
+    </a>
+
+    <a href="{% url 'search' %}?q={{ querystring }}&type=reports"
+       class="list-group-item{% if active == 'reports' %} active{% endif %}">
+        <span>{% trans 'Reports' %}</span>
+        <span class="badge">{{ count.reports }}</span>
+    </a>
+
+    <a href="{% url 'search' %}?q={{ querystring }}&type=users"
+       class="list-group-item{% if active == 'users' %} active{% endif %}">
+        <span>{% trans 'Users' %}</span>
+        <span class="badge">{{ count.users }}</span>
+    </a>
+</div>

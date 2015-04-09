@@ -1,0 +1,1626 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-15 01:18+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Autres/vulns/models.py:47 Autres/vulns/templates/vulns/add.html:13
+#: Autres/vulns/templates/vulns/drafts.html:10
+#: Autres/vulns/templates/vulns/drafts.html:17
+#: Autres/vulns/templates/vulns/edit.html:11
+#: Autres/vulns/templates/vulns/vuln.html:19
+#: Autres/vulns/templates/vulns/vulns.html:68
+#: projects/templates/projects/drafts.html:10
+#: projects/templates/projects/drafts.html:17
+#: projects/templates/projects/project_partial_vulns.html:42
+#: search/templates/search/partial_vulns_results.html:3 vulns/models.py:53
+#: vulns/templates/vulns/add.html:17 vulns/templates/vulns/drafts.html:11
+#: vulns/templates/vulns/drafts.html:31 vulns/templates/vulns/edit.html:13
+#: vulns/templates/vulns/vuln.html:19
+#: vulns/templates/vulns/vulns_partial_table.html:38
+msgid "Vulnerability"
+msgstr ""
+
+#: Autres/vulns/models.py:48 Autres/vulns/templates/vulns/vuln.html:18
+#: projects/templates/projects/partial_project.html:22
+#: projects/templates/projects/project.html:40
+#: search/templates/search/partial_projects_results.html:28
+#: search/templates/search/partial_reports_results.html:28
+#: templates/base.html:48 vulns/models.py:54
+#: vulns/templates/vulns/vuln.html:18
+msgid "Vulnerabilities"
+msgstr ""
+
+#: Autres/vulns/models.py:106 vulns/models.py:127
+msgid "Vulnerability category"
+msgstr ""
+
+#: Autres/vulns/models.py:107 vulns/models.py:128
+msgid "Vulnerability categories"
+msgstr ""
+
+#: Autres/vulns/models.py:152
+msgid "Affected item"
+msgstr ""
+
+#: Autres/vulns/models.py:153 vulns/models.py:42
+msgid "Affected items"
+msgstr ""
+
+#: Autres/vulns/models.py:177 Autres/vulns/templates/vulns/drafts.html:19
+#: Autres/vulns/templates/vulns/vulns.html:70
+#: projects/templates/projects/drafts.html:19
+#: projects/templates/projects/project_partial_vulns.html:44
+#: projects/templates/projects/vuln.html:96
+#: search/templates/search/partial_vulns_results.html:24
+#: search/templates/search/partial_vulnsinst_results.html:28
+#: vulns/templates/vulns/drafts.html:33 vulns/templates/vulns/vuln.html:102
+#: vulns/templates/vulns/vulns_partial_table.html:40
+msgid "Type"
+msgstr ""
+
+#: Autres/vulns/models.py:178
+msgid "Types"
+msgstr ""
+
+#: Autres/vulns/models.py:202 projects/models.py:206
+msgid "Exploitation impact"
+msgstr ""
+
+#: Autres/vulns/models.py:203 projects/models.py:207
+msgid "Exploitation impacts"
+msgstr ""
+
+#: Autres/vulns/models.py:212 projects/models.py:220
+msgid "Exploitation complexity"
+msgstr ""
+
+#: Autres/vulns/models.py:213 projects/models.py:221
+msgid "Exploitation complexities"
+msgstr ""
+
+#: Autres/vulns/models.py:222 projects/models.py:232
+msgid "Action complexity"
+msgstr ""
+
+#: Autres/vulns/models.py:223 projects/models.py:233
+msgid "Action complexities"
+msgstr ""
+
+#: Autres/vulns/models.py:232 projects/models.py:279
+msgid "Action priority"
+msgstr ""
+
+#: Autres/vulns/models.py:233 projects/models.py:280
+msgid "Action priorities"
+msgstr ""
+
+#: Autres/vulns/models.py:244 projects/models.py:260
+msgid "Severity rule"
+msgstr ""
+
+#: Autres/vulns/models.py:245 projects/models.py:261
+msgid "Severity rules"
+msgstr ""
+
+#: Autres/vulns/models.py:262 projects/models.py:293
+msgid "Action priority rule"
+msgstr ""
+
+#: Autres/vulns/models.py:263 projects/models.py:294
+msgid "Action priority rules"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/add.html:14 vulns/templates/vulns/add.html:18
+msgid "Add Vulnerability"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/add.html:42
+#: Autres/vulns/templates/vulns/preferences.html:45
+#: core/templates/core/password.html:43 core/templates/core/settings.html:54
+#: projects/templates/projects/add.html:45
+#: projects/templates/projects/modify.html:43
+#: projects/templates/projects/start.html:43
+#: projects/templates/projects/matrixproject/project_add_action.html:55
+#: projects/templates/projects/matrixproject/project_edit_action.html:49
+#: reports/templates/reports/add_report.html:77
+#: reports/templates/reports/edit_report.html:76
+#: reports/templates/reports/template/add_font.html:16
+#: reports/templates/reports/template/add_template.html:76
+#: reports/templates/reports/template/add_template_standart.html:76
+#: reports/templates/reports/template/edit_template.html:76
+#: reports/templates/reports/template/edit_template_standart.html:76
+#: vulns/templates/vulns/add.html:47
+#: vulns/templates/vulns/matrix/add_action.html:55
+#: vulns/templates/vulns/matrix/edit_action.html:49
+msgid "Save"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/add.html:43
+#: Autres/vulns/templates/vulns/edit.html:70
+#: projects/templates/projects/add.html:46
+#: projects/templates/projects/edit.html:69 vulns/templates/vulns/add.html:48
+#: vulns/templates/vulns/edit.html:72
+msgid "Save Draft"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/add.html:45
+msgid "Preview"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/add.html:46
+#: Autres/vulns/templates/vulns/edit.html:71
+#: feeds/templates/feeds/feeds.html:34 projects/templates/projects/add.html:49
+#: projects/templates/projects/edit.html:70
+#: projects/templates/projects/modify.html:44
+#: projects/templates/projects/start.html:44
+#: projects/templates/projects/matrixproject/project_add_action.html:56
+#: projects/templates/projects/matrixproject/project_edit_action.html:50
+#: reports/templates/reports/add_report.html:79
+#: reports/templates/reports/edit_report.html:78
+#: reports/templates/reports/template/add_template.html:78
+#: reports/templates/reports/template/add_template_standart.html:78
+#: reports/templates/reports/template/edit_template.html:78
+#: reports/templates/reports/template/edit_template_standart.html:78
+#: vulns/templates/vulns/add.html:51 vulns/templates/vulns/edit.html:73
+#: vulns/templates/vulns/matrix/add_action.html:56
+#: vulns/templates/vulns/matrix/edit_action.html:50
+msgid "Cancel"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:11
+#: Autres/vulns/templates/vulns/edit.html:12
+#: Autres/vulns/templates/vulns/vulns.html:30
+#: projects/templates/projects/drafts.html:11
+#: vulns/templates/vulns/drafts.html:12 vulns/templates/vulns/edit.html:14
+#: vulns/templates/vulns/vulns.html:19
+msgid "Drafts"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:16
+#: projects/templates/projects/drafts.html:16
+#: vulns/templates/vulns/drafts.html:30
+msgid "ID"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:18
+#: Autres/vulns/templates/vulns/vulns.html:69
+#: projects/templates/projects/drafts.html:18
+#: projects/templates/projects/project_partial_vulns.html:43
+#: projects/templates/projects/matrixproject/project_partial_severity.html:8
+#: search/templates/search/partial_vulns_results.html:32
+#: search/templates/search/partial_vulnsinst_results.html:36
+#: vulns/templates/vulns/drafts.html:32
+#: vulns/templates/vulns/vulns_partial_table.html:39
+#: vulns/templates/vulns/matrix/partial_severity.html:8
+msgid "Severity"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:20
+#: Autres/vulns/templates/vulns/vulns.html:66
+#: projects/templates/projects/drafts.html:20
+#: projects/templates/projects/project_partial_vulns.html:40
+#: search/templates/search/partial_vulns_results.html:28
+#: search/templates/search/partial_vulnsinst_results.html:32
+#: vulns/templates/vulns/drafts.html:34
+#: vulns/templates/vulns/vulns_partial_table.html:36
+msgid "Category"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:21
+#: Autres/vulns/templates/vulns/vulns.html:67
+#: projects/templates/projects/drafts.html:21
+#: projects/templates/projects/project_partial_vulns.html:41
+#: vulns/templates/vulns/drafts.html:35
+#: vulns/templates/vulns/vulns_partial_table.html:37
+msgid "Afected Item"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:22
+#: Autres/vulns/templates/vulns/vulns.html:74
+#: projects/templates/projects/drafts.html:22
+#: projects/templates/projects/project_partial_vulns.html:48
+#: vulns/templates/vulns/drafts.html:36
+#: vulns/templates/vulns/vulns_partial_table.html:44
+msgid "Date"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:23
+#: projects/templates/projects/drafts.html:23
+#: vulns/templates/vulns/drafts.html:37
+msgid "Added by"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:24
+#: projects/templates/projects/drafts.html:24
+#: vulns/templates/vulns/drafts.html:38
+msgid "Actions"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/drafts.html:47
+#: projects/templates/projects/drafts.html:47
+#: vulns/templates/vulns/drafts.html:67
+msgid "No draft to display"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/edit.html:13
+#: Autres/vulns/templates/vulns/vuln.html:24
+#: projects/templates/projects/vuln.html:29 templates/base.html:121
+#: vulns/templates/vulns/edit.html:15 vulns/templates/vulns/vuln.html:33
+msgid "Edit"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/edit.html:32
+#: projects/templates/projects/edit.html:34 vulns/templates/vulns/edit.html:34
+msgid "Click to remove this tag"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/edit.html:69
+#: projects/templates/projects/edit.html:68 vulns/templates/vulns/edit.html:71
+msgid "Publish"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/partial_preferences_menu.html:3
+msgid "vulnerabilities"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/partial_preferences_menu.html:4
+msgid "other"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/preferences.html:10
+#: projects/templates/projects/preferences.html:31
+#: vulns/templates/vulns/preferences.html:23
+msgid "Vulnerabilities Settings"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/preferences.html:25
+msgid "Edit CVSS levels and matrices"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vuln.html:33
+#: projects/templates/projects/project.html:89
+#: projects/templates/projects/vuln.html:150
+#: vulns/templates/vulns/vuln.html:157
+msgid "Added "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vuln.html:40
+#: Autres/vulns/templates/vulns/vuln.html:56
+#: projects/templates/projects/project.html:94
+#: projects/templates/projects/project.html:106
+#: projects/templates/projects/vuln.html:156
+#: projects/templates/projects/vuln.html:169
+#: vulns/templates/vulns/vuln.html:163 vulns/templates/vulns/vuln.html:176
+msgid "by "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vuln.html:49
+#: projects/templates/projects/project.html:101
+#: projects/templates/projects/vuln.html:163
+#: vulns/templates/vulns/vuln.html:170
+msgid "Updated "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:4
+#: reports/templates/reports/reports.html:3
+#: reports/templates/reports/tempaltes.html:3
+#: reports/templates/reports/templates.html:4
+#: vulns/templates/vulns/vulns.html:3
+msgid "vulns"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:27
+#: vulns/templates/vulns/vulns.html:14
+msgid "Add vulnnerability"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:37
+#: vulns/templates/vulns/vulns.html:28
+msgid "Vulnerabilities "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:44
+#: vulns/templates/vulns/vulns.html:42
+msgid "Popular Categories"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:50
+#: vulns/templates/vulns/vulns.html:48
+msgid "Popular Vulnerabilities Types"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:65
+#: projects/templates/projects/project_partial_vulns.html:39
+#: projects/templates/projects/matrixproject/project_partial_action_complexity.html:22
+#: projects/templates/projects/matrixproject/project_partial_action_priority.html:22
+#: projects/templates/projects/matrixproject/project_partial_exploitation_complexity.html:22
+#: projects/templates/projects/matrixproject/project_partial_exploitation_impact.html:22
+#: projects/templates/projects/matrixproject/project_partial_severity.html:22
+#: reports/templates/reports/reports.html:51
+#: reports/templates/reports/tempaltes.html:38
+#: vulns/templates/vulns/vulns_partial_table.html:35
+#: vulns/templates/vulns/matrix/partial_action_complexity.html:25
+#: vulns/templates/vulns/matrix/partial_action_priority.html:25
+#: vulns/templates/vulns/matrix/partial_exploitation_complexity.html:25
+#: vulns/templates/vulns/matrix/partial_exploitation_impact.html:24
+#: vulns/templates/vulns/matrix/partial_severity.html:26
+msgid "Ref"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:71
+#: projects/templates/projects/project_partial_vulns.html:45
+#: vulns/templates/vulns/vulns_partial_table.html:41
+msgid "Expl impact "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:72
+#: projects/templates/projects/project_partial_vulns.html:46
+#: vulns/templates/vulns/vulns_partial_table.html:42
+msgid "Action priority "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:73
+#: projects/templates/projects/project_partial_vulns.html:47
+#: vulns/templates/vulns/vulns_partial_table.html:43
+msgid "Action complexity "
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:75
+#: projects/templates/projects/project_partial_vulns.html:49
+#: vulns/templates/vulns/vulns_partial_table.html:45
+msgid "user"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:108
+#: projects/templates/projects/vulns_selection.html:175
+#: vulns/templates/vulns/vulns_partial_table.html:149
+msgid "There is no published vulnerabilities yet"
+msgstr ""
+
+#: Autres/vulns/templates/vulns/vulns.html:109
+#: reports/templates/reports/reports.html:137
+#: reports/templates/reports/tempaltes.html:104
+#: reports/templates/reports/templates.html:138
+#: vulns/templates/vulns/vulns_partial_table.html:150
+msgid "Be the first one to Add"
+msgstr ""
+
+#: activities/templates/activities/last_notifications.html:12
+msgid "You have no unread notification"
+msgstr ""
+
+#: activities/templates/activities/last_notifications.html:14
+msgid "See all"
+msgstr ""
+
+#: activities/templates/activities/notifications.html:26
+msgid "You have no notification"
+msgstr ""
+
+#: auth/templates/auth/signup.html:13 core/templates/core/cover.html:45
+msgid "Sign up for vulnDB"
+msgstr ""
+
+#: auth/templates/auth/signup.html:29
+msgid "Create an account"
+msgstr ""
+
+#: auth/templates/auth/signup.html:30
+msgid "You have already an account ?"
+msgstr ""
+
+#: core/templates/core/cover.html:25 core/templates/core/cover.html.py:44
+msgid "Log in"
+msgstr ""
+
+#: core/templates/core/cover.html:30 core/templates/core/network.html:27
+msgid "Username"
+msgstr ""
+
+#: core/templates/core/cover.html:37
+#: core/templates/core/partial_settings_menu.html:5
+msgid "Password"
+msgstr ""
+
+#: core/templates/core/network.html:4 templates/base.html:77
+msgid "Network"
+msgstr ""
+
+#: core/templates/core/network.html:25
+msgid "Job Title"
+msgstr ""
+
+#: core/templates/core/network.html:28
+msgid "Email"
+msgstr ""
+
+#: core/templates/core/network.html:30
+msgid "Location"
+msgstr ""
+
+#: core/templates/core/network.html:33
+msgid "Url"
+msgstr ""
+
+#: core/templates/core/partial_settings_menu.html:3
+msgid "Profile"
+msgstr ""
+
+#: core/templates/core/partial_settings_menu.html:4
+msgid "Picture"
+msgstr ""
+
+#: core/templates/core/password.html:4 core/templates/core/password.html:8
+#: core/templates/core/picture.html:4 core/templates/core/picture.html:14
+#: core/templates/core/settings.html:10 templates/base.html:80
+msgid "Account Settings"
+msgstr ""
+
+#: core/templates/core/password.html:23
+msgid "Change Password"
+msgstr ""
+
+#: core/templates/core/picture.html:29
+msgid "Change Picture"
+msgstr ""
+
+#: core/templates/core/picture.html:34
+msgid "Upload new picture"
+msgstr ""
+
+#: core/templates/core/picture.html:45
+#: projects/templates/projects/client.html:80
+msgid "Crop Picture"
+msgstr ""
+
+#: core/templates/core/picture.html:49
+msgid "Crop the profile picture and then click on the"
+msgstr ""
+
+#: core/templates/core/picture.html:49
+#: projects/templates/projects/client.html:85
+msgid "Save Picture"
+msgstr ""
+
+#: core/templates/core/picture.html:49
+#: projects/templates/projects/client.html:85
+msgid "button"
+msgstr ""
+
+#: core/templates/core/picture.html:64
+#: projects/templates/projects/client.html:102
+#: projects/templates/projects/preferences.html:182
+#: projects/templates/projects/preferences.html:204
+#: reports/templates/reports/template/add_font.html:18
+#: vulns/templates/vulns/preferences.html:172
+#: vulns/templates/vulns/preferences.html:194
+msgid "Close"
+msgstr ""
+
+#: core/templates/core/picture.html:65
+#: projects/templates/projects/client.html:103
+msgid "Save changes"
+msgstr ""
+
+#: core/templates/core/profile.html:24
+msgid "User informations"
+msgstr ""
+
+#: core/templates/core/profile.html:61
+#: messages/templates/messages/includes/partial_conversations.html:22
+msgid "Start a conversation"
+msgstr ""
+
+#: core/templates/core/profile.html:72
+msgid "Last Activities by"
+msgstr ""
+
+#: core/templates/core/settings.html:25
+msgid "Edit Profile"
+msgstr ""
+
+#: feeds/models.py:18 feeds/templates/feeds/feed.html:6
+#: feeds/templates/feeds/feeds.html:18
+#: search/templates/search/partial_feed_results.html:4
+#: search/templates/search/partial_results_menu.html:7 templates/base.html:47
+msgid "Feed"
+msgstr ""
+
+#: feeds/models.py:19 feeds/templates/feeds/feeds.html:4
+msgid "Feeds"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:14
+msgid "Press Ctrl + P to compose"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:15
+msgid "Compose"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:21
+msgid "Compose a new post"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:32
+msgid "Post"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:40
+msgid "new activities"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:48
+msgid "There is no Feeds yet"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed.html:46
+msgid "Write a comment..."
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed_comments.html:7
+msgid "Click to remove this comment"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed_comments.html:21
+msgid "Be the first one to comment"
+msgstr ""
+
+#: messages/models.py:15
+msgid "Message"
+msgstr ""
+
+#: messages/models.py:16
+msgid "Messages"
+msgstr ""
+
+#: messages/templates/messages/inbox.html:4
+#: messages/templates/messages/inbox.html:6
+msgid "Inbox"
+msgstr ""
+
+#: messages/templates/messages/new.html:4
+#: messages/templates/messages/new.html:6
+msgid "New message"
+msgstr ""
+
+#: projects/forms.py:108 projects/forms.py:118 reports/forms.py:27
+#: reports/forms.py:59 reports/forms.py:61 reports/forms.py:63
+#: reports/forms.py:65 reports/forms.py:67 reports/forms.py:86
+#: reports/forms.py:88 reports/forms.py:90 reports/forms.py:92
+#: reports/forms.py:94 vulns/forms.py:24 vulns/forms.py:26 vulns/forms.py:27
+#: vulns/forms.py:34 vulns/forms.py:36 vulns/forms.py:38
+msgid "(choose from the list)"
+msgstr ""
+
+#: projects/models.py:38 projects/templates/projects/project.html:20
+msgid "Project"
+msgstr ""
+
+#: projects/models.py:39 projects/templates/projects/add.html:15
+#: projects/templates/projects/client.html:61
+#: projects/templates/projects/modify.html:13
+#: projects/templates/projects/projects.html:18
+#: projects/templates/projects/start.html:13
+#: projects/templates/projects/matrixproject/project_add_action.html:13
+#: projects/templates/projects/matrixproject/project_edit_action.html:13
+#: search/templates/search/partial_projects_results.html:3
+#: search/templates/search/partial_results_menu.html:22 templates/base.html:49
+#: vulns/templates/vulns/matrix/add_action.html:13
+#: vulns/templates/vulns/matrix/edit_action.html:13
+msgid "Projects"
+msgstr ""
+
+#: projects/models.py:72
+msgid "Project Nature"
+msgstr ""
+
+#: projects/models.py:73
+msgid "Project Natures"
+msgstr ""
+
+#: projects/models.py:126
+msgid "Vulnerability instance"
+msgstr ""
+
+#: projects/models.py:127
+msgid "Vulnerabilities instances"
+msgstr ""
+
+#: projects/models.py:189 projects/templates/projects/client.html:22
+#: projects/templates/projects/project_partial_description.html:16
+#: search/templates/search/partial_clients_results.html:4
+msgid "Client"
+msgstr ""
+
+#: projects/models.py:190 search/templates/search/partial_results_menu.html:28
+msgid "Clients"
+msgstr ""
+
+#: projects/models.py:246
+msgid "severity"
+msgstr ""
+
+#: projects/models.py:247
+msgid "severitys"
+msgstr ""
+
+#: projects/views.py:134
+msgid "has Start a new Project"
+msgstr ""
+
+#: projects/views.py:161
+msgid "Modify an existing Project"
+msgstr ""
+
+#: projects/views.py:177
+msgid "Remove a Project"
+msgstr ""
+
+#: projects/views.py:194
+msgid "Archive an active Project"
+msgstr ""
+
+#: projects/views.py:210
+msgid "Activate an archived Project "
+msgstr ""
+
+#: projects/views.py:250
+msgid "Update Servety Matrix for the Project"
+msgstr ""
+
+#: projects/views.py:270
+msgid "Update Action Priority Matrix for the Project"
+msgstr ""
+
+#: projects/views.py:317 projects/views.py:349
+msgid "Load a new Vulnerability"
+msgstr ""
+
+#: projects/views.py:319 projects/views.py:351 projects/views.py:403
+msgid "to Project"
+msgstr ""
+
+#: projects/views.py:325
+msgid "You have entred a worng Refs / IDs"
+msgstr ""
+
+#: projects/views.py:357
+msgid "You have entred a worng Ref / ID"
+msgstr ""
+
+#: projects/views.py:401
+msgid "Add unexisting Vulnerability"
+msgstr ""
+
+#: projects/views.py:469
+msgid "Edit a Vulnerability"
+msgstr ""
+
+#: projects/views.py:471 projects/views.py:498
+msgid "from Project"
+msgstr ""
+
+#: projects/views.py:496
+msgid "Remove a Vulnerability"
+msgstr ""
+
+#: projects/views.py:518
+msgid "Add a new Client"
+msgstr ""
+
+#: projects/templates/projects/add.html:16
+msgid "Add new Vulnerability to project"
+msgstr ""
+
+#: projects/templates/projects/add.html:48 vulns/templates/vulns/add.html:50
+msgid " Description Preview"
+msgstr ""
+
+#: projects/templates/projects/add.html:72
+#: projects/templates/projects/edit.html:79 vulns/templates/vulns/add.html:81
+#: vulns/templates/vulns/edit.html:80
+msgid "Add one... "
+msgstr ""
+
+#: projects/templates/projects/client.html:21
+#: projects/templates/projects/project.html:19
+msgid "Projects list"
+msgstr ""
+
+#: projects/templates/projects/client.html:37
+#: projects/templates/projects/project.html:38
+#: projects/templates/projects/vuln.html:40 vulns/templates/vulns/vuln.html:45
+msgid "Description"
+msgstr ""
+
+#: projects/templates/projects/client.html:50
+msgid "Upload new logo"
+msgstr ""
+
+#: projects/templates/projects/client.html:56
+msgid "Client name"
+msgstr ""
+
+#: projects/templates/projects/client.html:60
+msgid "This Client have "
+msgstr ""
+
+#: projects/templates/projects/client.html:84
+msgid "Crop the client logo and then click on the"
+msgstr ""
+
+#: projects/templates/projects/client.html:117
+msgid "Client project list"
+msgstr ""
+
+#: projects/templates/projects/client.html:121
+msgid "No Project for this client"
+msgstr ""
+
+#: projects/templates/projects/edit.html:14
+#: projects/templates/projects/preferences.html:26
+msgid "Project List"
+msgstr ""
+
+#: projects/templates/projects/edit.html:16
+msgid "Edit Vulnerability"
+msgstr ""
+
+#: projects/templates/projects/modify.html:14
+#: projects/templates/projects/project_partial_options.html:37
+msgid "Edit Project"
+msgstr ""
+
+#: projects/templates/projects/partial_preferences_menu.html:4
+#: vulns/templates/vulns/partial_preferences_menu.html:4
+msgid "Criticality Matrix Level"
+msgstr ""
+
+#: projects/templates/projects/partial_preferences_menu.html:5
+#: vulns/templates/vulns/partial_preferences_menu.html:5
+msgid "Matrix Priority Implementation"
+msgstr ""
+
+#: projects/templates/projects/partial_project.html:9
+msgid "Project  "
+msgstr ""
+
+#: projects/templates/projects/partial_project.html:26
+#: search/templates/search/partial_projects_results.html:31
+#: search/templates/search/partial_reports_results.html:31
+msgid "Best practice"
+msgstr ""
+
+#: projects/templates/projects/partial_project.html:38
+msgid "started"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:27
+msgid "Active Project"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:28
+#: projects/templates/projects/project_partial_options.html:54
+#: projects/templates/projects/matrixproject/project_add_action.html:14
+#: projects/templates/projects/matrixproject/project_edit_action.html:14
+msgid "Preferences"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:46
+msgid "Edit Local CVSS levels and matrices for this Project"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:51
+#: vulns/templates/vulns/preferences.html:48
+msgid "Matrix calculation of Severity Level"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:64
+#: projects/templates/projects/preferences.html:122
+#: vulns/templates/vulns/preferences.html:58
+#: vulns/templates/vulns/preferences.html:115
+msgid "Action Complexity levels"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:94
+#: vulns/templates/vulns/preferences.html:88
+msgid "Exploitation Impact levels"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:111
+#: vulns/templates/vulns/preferences.html:105
+msgid "Matrix calculation of Action Priority "
+msgstr ""
+
+#: projects/templates/projects/preferences.html:150
+#: vulns/templates/vulns/preferences.html:142
+msgid "Severity levels"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:173
+#: vulns/templates/vulns/preferences.html:163
+msgid "Change Action Priority"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:183
+#: projects/templates/projects/preferences.html:205
+#: vulns/templates/vulns/preferences.html:173
+#: vulns/templates/vulns/preferences.html:195
+msgid "Change"
+msgstr ""
+
+#: projects/templates/projects/preferences.html:195
+#: vulns/templates/vulns/preferences.html:185
+msgid "Change Severity Level"
+msgstr ""
+
+#: projects/templates/projects/project.html:26
+msgid "Project: "
+msgstr ""
+
+#: projects/templates/projects/project.html:41
+#: projects/templates/projects/project_partial_stats.html:7
+msgid "Statistics"
+msgstr ""
+
+#: projects/templates/projects/project.html:64
+#: projects/templates/projects/project.html:75
+msgid "There is no discovred vulnerabilities yet for this project"
+msgstr ""
+
+#: projects/templates/projects/project.html:65
+#: projects/templates/projects/project.html:76
+msgid "Be the first one to load"
+msgstr ""
+
+#: projects/templates/projects/project.html:115
+#: projects/templates/projects/vuln.html:176
+#: vulns/templates/vulns/vuln.html:183
+msgid "Adminnistrator"
+msgstr ""
+
+#: projects/templates/projects/project_partial_description.html:7
+msgid "Project Description"
+msgstr ""
+
+#: projects/templates/projects/project_partial_description.html:21
+msgid "Nature"
+msgstr ""
+
+#: projects/templates/projects/project_partial_description.html:26
+msgid "Status"
+msgstr ""
+
+#: projects/templates/projects/project_partial_description.html:29
+msgid "Activate"
+msgstr ""
+
+#: projects/templates/projects/project_partial_description.html:31
+#: projects/templates/projects/projects.html:23
+msgid "Archived"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:11
+msgid "Options"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:19
+msgid "Generate repport"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:22
+msgid "Add repport"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:25
+msgid "Edite repport"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:33
+msgid "Delete Project"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:43
+msgid "Archive Project"
+msgstr ""
+
+#: projects/templates/projects/project_partial_options.html:48
+msgid "Activate Project"
+msgstr ""
+
+#: projects/templates/projects/project_partial_stats.html:16
+msgid "Répartition des vulnérabilités par Type"
+msgstr ""
+
+#: projects/templates/projects/project_partial_stats.html:35
+msgid "Répartition des vulnérabilités par niveau de criticité"
+msgstr ""
+
+#: projects/templates/projects/project_partial_stats.html:54
+msgid ""
+"Répartition des vulnérabilités par priorités de mise en ouvre des "
+"recommandations"
+msgstr ""
+
+#: projects/templates/projects/project_partial_stats.html:73
+msgid ""
+"Répartition des vulnérabilités par complexité de mise en ouvre des "
+"recommandations"
+msgstr ""
+
+#: projects/templates/projects/project_partial_team.html:11
+msgid "Project Team"
+msgstr ""
+
+#: projects/templates/projects/project_partial_vulns.html:24
+msgid "Load new vuln"
+msgstr ""
+
+#: projects/templates/projects/project_partial_vulns.html:27
+#: projects/templates/projects/vulns_selection.html:31
+msgid "Add unexisting vulnnerability"
+msgstr ""
+
+#: projects/templates/projects/project_partial_vulns.html:31
+msgid "Vulnerabilities Table"
+msgstr ""
+
+#: projects/templates/projects/projects.html:16
+msgid "Start a new Project"
+msgstr ""
+
+#: projects/templates/projects/projects.html:22
+msgid "Active"
+msgstr ""
+
+#: projects/templates/projects/projects.html:24
+msgid "All Projects"
+msgstr ""
+
+#: projects/templates/projects/projects.html:31
+msgid "No Project yet"
+msgstr ""
+
+#: projects/templates/projects/start.html:14
+#: vulns/templates/vulns/matrix/add_action.html:14
+#: vulns/templates/vulns/matrix/edit_action.html:14
+msgid "Add Project"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:18
+msgid "Project list"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:20
+msgid "Show Vulnerability"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:26 vulns/templates/vulns/vuln.html:27
+msgid "Delete"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:51 vulns/templates/vulns/vuln.html:56
+msgid "Vulnerability Model"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:73 vulns/templates/vulns/vuln.html:78
+msgid "Elément impacté"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:90 vulns/templates/vulns/vuln.html:95
+msgid "Niveau de criticité"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:104
+#: vulns/templates/vulns/vuln.html:110
+msgid "Conséquences dexploitation"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:110
+#: vulns/templates/vulns/vuln.html:116
+msgid "Complexité dexploitation"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:123
+#: vulns/templates/vulns/vuln.html:129
+msgid "Recommandation"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:131
+#: vulns/templates/vulns/vuln.html:137
+msgid "Complexité de mise en œuvre"
+msgstr ""
+
+#: projects/templates/projects/vuln.html:137
+#: vulns/templates/vulns/vuln.html:143
+msgid "Priorité de mise en œuvre"
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:4
+msgid "vulns selection"
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:34
+msgid "Vulnerabilities Selection "
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:49
+msgid ""
+" To load new vulnerabilities to this project you can either enter the "
+"vulnerability Ref or select from the  Vulnerabilities Table"
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:54
+msgid "Enter Vulnerability Ref "
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:66
+msgid ""
+"Or, Choose from The Vulnerability Table by selecting One or Multiple "
+"Vulnerabilities"
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:84
+msgid "Load selection"
+msgstr ""
+
+#: projects/templates/projects/vulns_selection.html:177
+msgid "Be the first one to add"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_action_complexity.html:8
+#: projects/templates/projects/matrixproject/project_partial_action_complexity.html:15
+#: vulns/templates/vulns/matrix/partial_action_complexity.html:8
+msgid "Action Complexity"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_action_complexity.html:23
+#: projects/templates/projects/matrixproject/project_partial_action_priority.html:23
+#: projects/templates/projects/matrixproject/project_partial_exploitation_complexity.html:23
+#: projects/templates/projects/matrixproject/project_partial_exploitation_impact.html:23
+#: projects/templates/projects/matrixproject/project_partial_severity.html:23
+#: reports/templates/reports/tempaltes.html:39
+#: vulns/templates/vulns/matrix/partial_action_complexity.html:26
+#: vulns/templates/vulns/matrix/partial_action_priority.html:26
+#: vulns/templates/vulns/matrix/partial_exploitation_complexity.html:26
+#: vulns/templates/vulns/matrix/partial_exploitation_impact.html:25
+#: vulns/templates/vulns/matrix/partial_severity.html:27
+msgid "Name"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_action_complexity.html:24
+#: projects/templates/projects/matrixproject/project_partial_action_priority.html:24
+#: projects/templates/projects/matrixproject/project_partial_exploitation_complexity.html:24
+#: projects/templates/projects/matrixproject/project_partial_exploitation_impact.html:24
+#: projects/templates/projects/matrixproject/project_partial_severity.html:24
+#: vulns/templates/vulns/matrix/partial_action_complexity.html:27
+#: vulns/templates/vulns/matrix/partial_action_priority.html:27
+#: vulns/templates/vulns/matrix/partial_exploitation_complexity.html:27
+#: vulns/templates/vulns/matrix/partial_exploitation_impact.html:26
+#: vulns/templates/vulns/matrix/partial_severity.html:28
+msgid "Color"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_action_priority.html:8
+#: projects/templates/projects/matrixproject/project_partial_action_priority.html:15
+#: vulns/templates/vulns/matrix/partial_action_priority.html:8
+msgid "Action Priority"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_exploitation_complexity.html:8
+#: vulns/templates/vulns/matrix/partial_exploitation_complexity.html:8
+msgid "Exploitation Complexity"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_exploitation_complexity.html:15
+#: vulns/templates/vulns/matrix/partial_exploitation_complexity.html:17
+msgid "Add Exploitation Complexity"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_exploitation_impact.html:8
+#: vulns/templates/vulns/matrix/partial_exploitation_impact.html:8
+msgid "Exploitation Impact"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_exploitation_impact.html:15
+#: vulns/templates/vulns/matrix/partial_exploitation_impact.html:16
+msgid "Add Exploitation Impact"
+msgstr ""
+
+#: projects/templates/projects/matrixproject/project_partial_severity.html:15
+#: vulns/templates/vulns/matrix/partial_severity.html:17
+msgid "Add Severity"
+msgstr ""
+
+#: reports/models.py:18
+msgid "Report"
+msgstr ""
+
+#: reports/models.py:19 reports/templates/reports/add_report.html:18
+#: reports/templates/reports/edit_report.html:17
+#: reports/templates/reports/reports.html:26
+#: reports/templates/reports/templates.html:13
+#: search/templates/search/partial_reports_results.html:3
+#: search/templates/search/partial_results_menu.html:34 templates/base.html:50
+msgid "Reports"
+msgstr ""
+
+#: reports/models.py:46
+msgid "Report Template"
+msgstr ""
+
+#: reports/models.py:47
+msgid "Report Templates"
+msgstr ""
+
+#: reports/models.py:64
+msgid "Template Front Cover Page"
+msgstr ""
+
+#: reports/models.py:65
+msgid "Template Front Cover Pages"
+msgstr ""
+
+#: reports/models.py:77
+msgid "Template Header"
+msgstr ""
+
+#: reports/models.py:78
+msgid "Template Headers"
+msgstr ""
+
+#: reports/models.py:90
+msgid "Template Footer"
+msgstr ""
+
+#: reports/models.py:91
+msgid "Template Footers"
+msgstr ""
+
+#: reports/models.py:102 reports/models.py:114
+msgid "Template Font"
+msgstr ""
+
+#: reports/models.py:103
+msgid "Template Fonts"
+msgstr ""
+
+#: reports/models.py:115
+msgid "Template Font Sizes"
+msgstr ""
+
+#: reports/models.py:127
+msgid "Report Contact"
+msgstr ""
+
+#: reports/models.py:128
+msgid "Report Contacts"
+msgstr ""
+
+#: reports/models.py:151
+msgid "Report Template Standart"
+msgstr ""
+
+#: reports/models.py:152
+msgid "Report Templates Standart"
+msgstr ""
+
+#: reports/templates/reports/add_report.html:19
+#: reports/templates/reports/edit_report.html:18
+msgid "Add Report"
+msgstr ""
+
+#: reports/templates/reports/add_report.html:63
+#: reports/templates/reports/edit_report.html:62
+#: reports/templates/reports/partial_template.html:36
+#: reports/templates/reports/templates.html:55
+msgid "Template "
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:18
+#: reports/templates/reports/templates.html:37
+msgid "View More"
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:21
+#: reports/templates/reports/templates.html:40
+msgid "Add by "
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:44
+#: reports/templates/reports/templates.html:61
+msgid "Front cover"
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:64
+#: reports/templates/reports/templates.html:74
+msgid "Font "
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:87
+#: reports/templates/reports/templates.html:88
+msgid "Font size "
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:107
+#: reports/templates/reports/tempaltes.html:41
+#: reports/templates/reports/templates.html:101
+msgid "Header"
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:126
+#: reports/templates/reports/tempaltes.html:42
+#: reports/templates/reports/templates.html:114
+msgid "Footer"
+msgstr ""
+
+#: reports/templates/reports/partial_template.html:144
+#: reports/templates/reports/templates.html:126
+msgid "Close "
+msgstr ""
+
+#: reports/templates/reports/reports.html:27
+#: reports/templates/reports/select_template.html:16
+#: reports/templates/reports/tempaltes.html:13
+#: reports/templates/reports/templates.html:14
+#: reports/templates/reports/template/add_template.html:16
+#: reports/templates/reports/template/add_template_standart.html:16
+#: reports/templates/reports/template/edit_template.html:16
+#: reports/templates/reports/template/edit_template_standart.html:16
+msgid "Templates"
+msgstr ""
+
+#: reports/templates/reports/reports.html:37
+msgid "Here you can find all Reports added "
+msgstr ""
+
+#: reports/templates/reports/reports.html:52
+msgid "name"
+msgstr ""
+
+#: reports/templates/reports/reports.html:53
+msgid "Added"
+msgstr ""
+
+#: reports/templates/reports/reports.html:54
+msgid "By"
+msgstr ""
+
+#: reports/templates/reports/reports.html:56
+msgid "template "
+msgstr ""
+
+#: reports/templates/reports/reports.html:57
+msgid "contact "
+msgstr ""
+
+#: reports/templates/reports/reports.html:136
+#: reports/templates/reports/templates.html:137
+msgid "There is no published reports yet"
+msgstr ""
+
+#: reports/templates/reports/select_template.html:17
+msgid "Template"
+msgstr ""
+
+#: reports/templates/reports/select_template.html:25
+msgid "Edite"
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:12
+msgid "Project:   "
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:20
+#: reports/templates/reports/templates.html:18
+msgid "Here you can find all Templates added "
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:26
+#: reports/templates/reports/templates.html:22
+#: reports/templates/reports/template/add_template.html:17
+#: reports/templates/reports/template/add_template_standart.html:17
+#: reports/templates/reports/template/edit_template.html:17
+msgid "Add Template"
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:40
+msgid "Front Cover "
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:43
+msgid "Font"
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:44
+msgid "Font Size"
+msgstr ""
+
+#: reports/templates/reports/tempaltes.html:103
+msgid "There is no published templates yet"
+msgstr ""
+
+#: reports/templates/reports/templates.html:7
+#: reports/templates/reports/template/edit_template_standart.html:17
+msgid "Edite Standart Template"
+msgstr ""
+
+#: reports/templates/reports/templates.html:10
+msgid "Add Standart Template"
+msgstr ""
+
+#: search/templates/search/partial_clients_results.html:13
+msgid " Client name"
+msgstr ""
+
+#: search/templates/search/partial_clients_results.html:22
+msgid "No client found"
+msgstr ""
+
+#: search/templates/search/partial_feed_results.html:23
+msgid "No feed found"
+msgstr ""
+
+#: search/templates/search/partial_projects_results.html:24
+#: search/templates/search/partial_reports_results.html:24
+msgid "A Project for "
+msgstr ""
+
+#: search/templates/search/partial_projects_results.html:26
+#: search/templates/search/partial_reports_results.html:26
+msgid " with "
+msgstr ""
+
+#: search/templates/search/partial_projects_results.html:39
+msgid "No project found"
+msgstr ""
+
+#: search/templates/search/partial_reports_results.html:39
+msgid "No reports found"
+msgstr ""
+
+#: search/templates/search/partial_results_menu.html:12
+msgid "Vulneabilities"
+msgstr ""
+
+#: search/templates/search/partial_results_menu.html:17
+msgid "Vulneabilities Instances"
+msgstr ""
+
+#: search/templates/search/partial_results_menu.html:40
+#: search/templates/search/partial_users_results.html:3
+msgid "Users"
+msgstr ""
+
+#: search/templates/search/partial_users_results.html:19
+msgid "No user found"
+msgstr ""
+
+#: search/templates/search/partial_vulns_results.html:14
+#: search/templates/search/partial_vulnsinst_results.html:18
+msgid " added by"
+msgstr ""
+
+#: search/templates/search/partial_vulns_results.html:36
+#: search/templates/search/partial_vulnsinst_results.html:40
+msgid "Action prioirity"
+msgstr ""
+
+#: search/templates/search/partial_vulns_results.html:48
+#: search/templates/search/partial_vulnsinst_results.html:52
+msgid "No vulnerability found"
+msgstr ""
+
+#: search/templates/search/partial_vulnsinst_results.html:3
+msgid "Vulnerability Instances"
+msgstr ""
+
+#: search/templates/search/partial_vulnsinst_results.html:10
+msgid "from project"
+msgstr ""
+
+#: search/templates/search/results.html:17
+#: search/templates/search/search.html:22
+msgid "Search"
+msgstr ""
+
+#: search/templates/search/results.html:24
+msgid "Search "
+msgstr ""
+
+#: search/templates/search/search.html:19
+msgid "Search for Vulnerabilities, projects, rapports or users"
+msgstr ""
+
+#: templates/base.html:57
+msgid "Search for Vulnerabilities, projects, clients, rapports or users ..."
+msgstr ""
+
+#: templates/base.html:84
+msgid "Admin Panel"
+msgstr ""
+
+#: templates/base.html:88
+msgid "Log out"
+msgstr ""
+
+#: vulns/forms.py:21
+msgid ""
+"Add Afected items to this Vulnerability as tags, at least one tag such as "
+"(server switch web)"
+msgstr ""
+
+#: vulns/forms.py:73
+msgid "Ce champ est obligatoire."
+msgstr ""
+
+#: vulns/forms.py:80
+msgid "Add a new category"
+msgstr ""
+
+#: vulns/forms.py:94
+msgid "choose severity"
+msgstr ""
+
+#: vulns/forms.py:99
+msgid "choose priority"
+msgstr ""
+
+#: vulns/models.py:114
+msgid "Vulnerability Item Tag"
+msgstr ""
+
+#: vulns/models.py:115
+msgid "Vulnerability Items Tags"
+msgstr ""
+
+#: vulns/models.py:149
+msgid "Vulnerability Type"
+msgstr ""
+
+#: vulns/models.py:150
+msgid "Vulnerability Types"
+msgstr ""
+
+#: vulns/models.py:177
+msgid "Vulnerability Exploitation impact"
+msgstr ""
+
+#: vulns/models.py:178
+msgid "Vulnerability Exploitation impacts"
+msgstr ""
+
+#: vulns/models.py:189
+msgid "Vulnerability Exploitation complexity"
+msgstr ""
+
+#: vulns/models.py:190
+msgid "Vulnerability Exploitation complexities"
+msgstr ""
+
+#: vulns/models.py:201
+msgid "Vulnerability Action complexity"
+msgstr ""
+
+#: vulns/models.py:202
+msgid "Vulnerability Action complexities"
+msgstr ""
+
+#: vulns/models.py:213
+msgid "Vulnerability severity"
+msgstr ""
+
+#: vulns/models.py:214
+msgid "Vulnerability severities"
+msgstr ""
+
+#: vulns/models.py:226
+msgid "Vulnerability Severity rule"
+msgstr ""
+
+#: vulns/models.py:227
+msgid "Vulnerability Severity rules"
+msgstr ""
+
+#: vulns/models.py:245
+msgid "Vulnerability Action priority"
+msgstr ""
+
+#: vulns/models.py:246
+msgid "Vulnerability Action priorities"
+msgstr ""
+
+#: vulns/models.py:256
+msgid "Vulnerability Action priority rule"
+msgstr ""
+
+#: vulns/models.py:257
+msgid "Vulnerability Action priority rules"
+msgstr ""
+
+#: vulns/views.py:127
+msgid "Add a new Vulnerability"
+msgstr ""
+
+#: vulns/views.py:129
+msgid " to the Database."
+msgstr ""
+
+#: vulns/views.py:180
+msgid "Modify a Vulnerability"
+msgstr ""
+
+#: vulns/views.py:205
+msgid "Delete a Vulnerability"
+msgstr ""
+
+#: vulns/views.py:207
+msgid "From the Database"
+msgstr ""
+
+#: vulns/views.py:270
+msgid "Update Globale Servety Matrix"
+msgstr ""
+
+#: vulns/views.py:286
+msgid "Update Globale Action Priority Matrix"
+msgstr ""
+
+#: vulns/templates/vulns/drafts.html:18
+msgid ""
+"Here you can find all vulnerabilities you working on as drafts, and you can "
+"either Edit or Delete Them."
+msgstr ""
+
+#: vulns/templates/vulns/drafts.html:22
+msgid "Only you can see this list."
+msgstr ""
+
+#: vulns/templates/vulns/preferences.html:38
+msgid "Edit Global CVSS levels and matrices for all the Database"
+msgstr ""
+
+#: vulns/templates/vulns/preferences.html:40
+msgid "View Global CVSS levels and matrices for all the Database"
+msgstr ""
+
+#: vulns/templates/vulns/vulns.html:24
+msgid "Global Preference"
+msgstr ""
+
+#: vulns/templates/vulns/vulns.html:34
+msgid ""
+"Here you can find all vulnerabilities added to the database by VulnDB "
+"Administrators"
+msgstr ""
+
+#: vulns/templates/vulns/vulns.html:56
+msgid "Popular Vulnerabilities Natures"
+msgstr ""
+
+#: vulns/templates/vulns/vulns_partial_table.html:88
+msgid "Administrator"
+msgstr ""
+
+#: vulns/templates/vulns/matrix/partial_action_complexity.html:17
+msgid "Add Action Complexity"
+msgstr ""
+
+#: vulns/templates/vulns/matrix/partial_action_priority.html:17
+msgid "Add Action Priority"
+msgstr ""

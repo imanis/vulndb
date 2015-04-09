@@ -1,0 +1,266 @@
+{% load i18n %}
+{% load humanize %}
+
+
+<div class="stat">
+    <div class="panel panel-default">
+        <div class="panel-heading">{% trans 'Statistics' %}</div>
+        <div class="panel-body">
+
+
+            <div class="panel-stat col-sm-12 col-md-12">
+                <div id="accordion1" class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseBody2">
+                                {% trans 'Répartition des vulnérabilités par Type' %}
+                                <span class="glyphicon pull-right glyphicon-chevron-up"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseBody2" class="panel-collapse collapse" style="height: auto;">
+                        <div id="countByTypePanel" class="divchart">
+                            <div style='text-align:center'><img src='/static/img/loading.gif'></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-stat col-sm-12 col-md-12">
+                <div id="accordion2" class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseBody1">
+                                {% trans 'Répartition des vulnérabilités par niveau de criticité' %}
+                                <span class="glyphicon pull-right glyphicon-chevron-up"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseBody1" class="panel-collapse collapse" style="height: auto;">
+                        <div id="countBySeverityPanel" class="divchart">
+                            <div style='text-align:center'><img src='/static/img/loading.gif'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel-stat col-sm-12 col-md-12">
+                <div id="accordion3" class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseBody3">
+                                {% trans 'Répartition des vulnérabilités par priorités de mise en ouvre des recommandations' %}
+                                <span class="glyphicon pull-right glyphicon-chevron-up"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseBody3" class=" panel-collapse collapse" style="height: auto;">
+                        <div id="countByActionPrio" class="divchart">
+                            <div style='text-align:center'><img src='/static/img/loading.gif'></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-stat col-sm-12 col-md-12">
+                <div id="accordion4" class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseBody4">
+                                {% trans 'Répartition des vulnérabilités par complexité de mise en ouvre des recommandations' %}
+                                <span class="glyphicon pull-right glyphicon-chevron-up"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseBody4" class="panel-collapse collapse" style="height: auto;">
+                        <div class="divchart" id="countByActionCompl">
+                            <div style='text-align:center'><img src='/static/img/loading.gif'></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% block extrajs %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var jsonUrl = '{% url 'chart_data_json' %}';
+            // Count By Severity
+            var countBySeverityOptions = {
+
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    renderTo: 'countBySeverityPanel'
+                },
+                title: {text: null},
+                series: [
+                    {type: 'pie', name: 'Severity Count'}
+                ],
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                                this.point.y + ' ' + this.point.name.toLowerCase();
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            },
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                }
+            };
+
+            function loadCountBySeverity(path) {
+                $.getJSON(path,
+                        function (data) {
+                            countBySeverityOptions.series[0].innerSize = '20%';
+                            countBySeverityOptions.series[0].data = data['chart_data'];
+                            var chart = new Highcharts.Chart(countBySeverityOptions);
+                        });
+            }
+
+
+            // Count By Type
+            var countByTypeOptions = {
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    renderTo: 'countByTypePanel'
+                },
+                title: {text: null},
+                series: [
+                    {type: 'pie', name: 'Type Count'}
+                ],
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                }
+            };
+
+            function loadCountByType(path) {
+                $.getJSON(path,
+                        function (data) {
+                            countByTypeOptions.series[0].innerSize = '50%';
+                            countByTypeOptions.series[0].data = data['chart_data'];
+                            var chart = new Highcharts.Chart(countByTypeOptions);
+                        });
+            }
+
+
+            // Count By Action Priority
+            var countByActionPrioOptions = {
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    renderTo: 'countByActionPrio'
+                },
+                title: {text: null},
+                series: [
+                    {type: 'pie', name: 'Action Priority Count'}
+                ],
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                }
+            };
+
+            function loadCountByActionPrio(path) {
+                $.getJSON(path,
+                        function (data) {
+                            countByActionPrioOptions.series[0].innerSize = '20%';
+                            countByActionPrioOptions.series[0].data = data['chart_data'];
+                            var chart = new Highcharts.Chart(countByActionPrioOptions);
+                        });
+            }
+
+            // Count By Action Complexity
+            var countByActionComplOptions = {
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    renderTo: 'countByActionCompl'
+                },
+                title: {text: null},
+                series: [
+                    {type: 'pie', name: 'Action Complexity Count'}
+                ],
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        },
+                        showInLegend: true
+                    }
+                }
+            };
+
+            function loadCountByActionCompl(path) {
+                $.getJSON(path,
+                        function (data) {
+                            countByActionComplOptions.series[0].innerSize = '40%';
+                            countByActionComplOptions.series[0].data = data['chart_data'];
+                            var chart = new Highcharts.Chart(countByActionComplOptions);
+                        });
+            }
+
+            var path = jsonUrl + '?name=dst_by_severity';
+            loadCountBySeverity(path);
+            var path = jsonUrl + '?name=dst_by_type';
+            loadCountByType(path);
+            var path = jsonUrl + '?name=dst_by_action_prio';
+            loadCountByActionPrio(path);
+            var path = jsonUrl + '?name=dst_by_action_compl';
+            loadCountByActionCompl(path);
+
+
+        });
+    </script>
+{% endblock extrajs %}

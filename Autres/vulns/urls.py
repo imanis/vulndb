@@ -1,0 +1,20 @@
+from django.conf.urls import patterns, include, url
+
+urlpatterns = patterns('vulnDB.vulns.views',
+                       url(r'^add_category/$', 'add_category', name='add_category'),
+                       url(r'^$', 'vulns', name='vulns'),
+                       url(r'^preferences$', 'preferences', name='preferences'),
+                       url(r'^add/$', 'add', name='add'),
+                       url(r'^add_category/$', 'add_category', name='add_category'),
+                       url(r'^preview/$', 'preview', name='preview'),
+                       url(r'^drafts/$', 'drafts', name='drafts'),
+                       # url(r'^comment/$', 'comment', name='comment'),
+                       url(r'^tag/(?P<tag_name>.+)/$', 'item_tag', name='item_tag'),
+                       url(r'^deletetag/(?P<tag_name>.+)/(?P<vuln_id>\d+)/$', 'delete_item_tag', name='delete_item_tag'),
+                       url(r'^category/(?P<cat_name>.+)/$', 'category', name='category'),
+                       url(r'^type/(?P<type_name>.+)/$', 'type', name='type'),
+                       url(r'^categories/$', 'categories', name='categories_write'),
+                       url(r'^edit/(?P<id>\d+)/$', 'edit', name='edit_vuln'),
+                       url(r'^delete/(?P<id>\d+)/$', 'delete', name='delete_vuln'),
+                       url(r'^(?P<slug>[-\w]+)/$', 'vuln', name='vuln'),
+)

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+	<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<h1>Logo</h1>
+				</div>
+				<div class="top-nav">
+					<ul>
+						<li ><a href="{% url 'home' %}">Actualité</a></li>
+                        <li ><a href="{% url 'jobs' %}">Nos métiers</a></li>
+                        <li ><a href="{% url 'qualification' %}">Nos qualifications</a></li>
+                        <li class="active"><a href="{% url 'lnx' %}">Réalisation KNX</a></li>
+                        <li><a href="{% url 'company' %}">La société</a></li>
+                        <li><a href="{% url 'cantact' %}">Contact</a></li>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+			<!---End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+				<div class="about-us">
+					 <div class="about-header">
+					    <h3>Réalisation KNX</h3>
+					 </div>
+					<div class="about-info">
+						<a href="#">Un standard multimédia pour tous types de bâtiments.</a>
+						<p>KNX propose un standard de compatibilité et d'interopérabilité unique dans les secteurs de
+la domotique et de la gestion technique du bâtiment.
+Ce standard a été reconnu comme norme par les instances européennes en décembre 2003.
+La propagation de ce système, désormais valide en tant que norme mondiale,
+témoigne de la reconnaissance de la technologie KNX dans le secteur.
+Le standard KNX constitue ainsi un véritable facteur de développement pour le marché international,
+du constructeur de produits et systèmes à l'utilisateur en passant parles différents maillons de
+la chaîne.</p>
+
+
+<a href="#">Pourquoi choisir le protocole KNX ?.</a>
+						<p>D'abord parce qu'il est ouvert et interopérable : donc accessible à tous.
+Il assure ainsi à ses utilisateurs une grande liberté d'achat des équipements (sans se limiter aux produits d'un fabricant en particulier) et une pérennité des installations (au-delà des évolutions des aménagements).
+
+D'autre part, notre standard permet des économies d'énergie appréciables, quel que soit le type de construction auquel nous avons à faire (neuf, ancien, particulier, collectif, etc.).
+
+KNX a toujours cru en ces potentiels et les a développés avec ferveur. L'association a défendu fermement les intérêts de la norme grâce à un credo simple :
+• faire connaître,
+• valoriser,
+• fédérer les professionnels.</p>
+
+
+<a href="#">KNX Certifications.</a>
+						<p>KNX est le seul STANDARD INTERNATIONAL reconnu dans le monde entier pour la technique de système des bâtiments et du résidentiel.</p>
+						<ul>
+							<li> Norme Internationale (ISO/IEC14543-3),</li>
+							<li>  Norme Européenne (CENELEC EN50090 et CEN EN 13321-1 et 13321-2),</li>
+							<li> Norme Chinoise (GB/Z 20965),</li>
+							<li> Norme ANSI/ASHRAE (ANSI/ASHRAE 135).</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<!---End-content---->
+		<div class="clear"> </div>
+		 {% endblock main %}

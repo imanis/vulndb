@@ -1,0 +1,147 @@
+[
+
+  {
+    "model": "vulns.VulnType",
+    "pk": 1,
+    "fields": {
+      "type": "Technical"
+    }
+  },  {
+    "model": "vulns.VulnType",
+    "pk": 2,
+    "fields": {
+      "type": "Configuration"
+    }
+  },  {
+    "model": "vulns.VulnType",
+    "pk": 3,
+    "fields": {
+      "type": "Organizational"
+    }
+  },
+
+
+  {
+    "model": "vulns.VulnCategory",
+    "pk": 1,
+    "fields": {
+      "category": "Network"
+    }
+  },
+  {
+    "model": "vulns.VulnCategory",
+    "pk": 2,
+    "fields": {
+      "category": "Web Stack"
+    }
+  },  {
+    "model": "vulns.VulnCategory",
+    "pk": 3,
+    "fields": {
+      "category": "Firewall"
+    }
+  },
+
+  {
+    "model": "vulns.VulnExploitation_impact",
+    "pk": 1,
+    "fields": {
+      "exploitation_impact": "fort"
+    }
+  },
+  {
+    "model": "vulns.VulnExploitation_impact",
+    "pk": 2,
+    "fields": {
+      "exploitation_impact": "moyenne"
+    }
+  },
+  {
+    "model": "vulns.VulnExploitation_impact",
+    "pk": 3,
+    "fields": {
+      "exploitation_impact": "faible"
+    }
+  },
+
+
+
+  {
+    "model": "vulns.VulnExploitation_complexity",
+    "pk": 1,
+    "fields": {
+      "exploitation_complexity": "simple"
+    }
+  },
+   {
+    "model": "vulns.VulnExploitation_complexity",
+    "pk": 2,
+    "fields": {
+      "exploitation_complexity": "moyenne"
+    }
+  },
+  {
+    "model": "vulns.VulnExploitation_complexity",
+    "pk": 3,
+    "fields": {
+      "exploitation_complexity": "complexe"
+    }
+  },
+
+
+
+
+  {
+    "model": "vulns.VulnAction_complexity",
+    "pk": 1,
+    "fields": {
+      "action_complexity": "simple"
+    }
+  },
+   {
+    "model": "vulns.VulnAction_complexity",
+    "pk": 2,
+    "fields": {
+      "action_complexity": "moyenne"
+    }
+  },
+  {
+    "model": "vulns.VulnAction_complexity",
+    "pk": 3,
+    "fields": {
+      "action_complexity": "complexe"
+    }
+  },
+
+
+
+  {
+    "model": "vulns.VulnAction_priority",
+    "pk": 1,
+    "fields": {
+      "action_priority": "immediate"
+    }
+  },
+   {
+    "model": "vulns.VulnAction_priority",
+    "pk": 2,
+    "fields": {
+      "action_priority": "court terme"
+    }
+  },
+  {
+    "model": "vulns.VulnAction_priority",
+    "pk": 3,
+    "fields": {
+      "action_priority": "moyenne"
+    }
+  },
+  {
+    "model": "vulns.VulnAction_priority",
+    "pk": 4,
+    "fields": {
+      "action_priority": "longue"
+    }
+  },
+
+]

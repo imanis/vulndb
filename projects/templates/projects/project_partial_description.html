@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load humanize %}
+
+
+<div class="project_description ">
+    <div class="panel panel-default">
+        <div class="panel-heading">{% trans 'Project Description' %}</div>
+        <div class="panel-body">
+
+                <span class="pull-right">
+                  <a href="{% url 'client' project.client.pk %}">   <img src="{{ project.client.get_picture }}" style="widh:90px; height: 90px;"/></a>
+                </span>
+
+            <ol>
+                <li>
+                    <h5> {% trans 'Client' %} :
+                        <a href="{% url 'client' project.client.pk %}"> {{ project.client.name }} </a>
+                    </h5>
+                </li>
+                <li>
+                    <h5> {% trans 'Nature' %} :
+                        {{ project.nature }}
+                    </h5>
+                </li>
+                <li>
+                    <h5> {% trans 'Status' %} :
+
+                        {% if project.status == 'A' %}
+                            <span class="glyphicon glyphicon-ok"></span> {% trans 'Activate' %}
+                        {% else %}
+                           <span class="glyphicon glyphicon-file"></span>  {% trans 'Archived' %}
+                        {% endif %}
+
+                    </h5>
+                </li>
+            </ol>
+
+        </div>
+    </div>
+</div>
+

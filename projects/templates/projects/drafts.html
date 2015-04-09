@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head %}
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'vulns' %}">{% trans 'Vulnerability' %}</a></li>
+        <li class="active">{% trans 'Drafts' %}</li>
+    </ol>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{% trans 'ID' %}</th>
+            <th>{% trans 'Vulnerability' %}</th>
+            <th>{% trans 'Severity' %}</th>
+            <th>{% trans 'Type' %}</th>
+            <th>{% trans 'Category' %}</th>
+            <th>{% trans 'Afected Item' %}</th>
+            <th>{% trans 'Date' %}</th>
+            <th>{% trans 'Added by' %}</th>
+            <th>{% trans 'Actions' %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vuln in drafts %}
+            <tr>
+                <td>{{ vuln.pk }}</td>
+                <td>{{ vuln.vulnerability }}</td>
+                <td>{{ vuln.severity }}</td>
+                <td>{{ vuln.type }}</td>
+                <td>{{ vuln.category }}</td>
+                <td>{{ vuln.affected_item }}</td>
+                <td>{{ vuln.create_date }}</td>
+                <td>{{ vuln.create_user }}</td>
+                <td>
+                    <a href="{% url 'edit_vuln' vuln.pk %}" class="glyphicon glyphicon-check"></a>
+                    <a href="{% url 'delete_vuln' vuln.pk %}" class="glyphicon glyphicon-remove"></a>
+
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center">
+                    {% trans 'No draft to display' %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock main %}

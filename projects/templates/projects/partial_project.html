@@ -1,0 +1,52 @@
+{% load humanize %}
+{% load i18n %}
+
+<div class="panel panel-default project clearfix">
+    <a href="{% url 'project' project.slug %}">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-book"></span>
+                {% trans 'Project  ' %} {{ project.pk }} : {{ project.project }}
+                 -
+                <span class="alert-success">{{ project.client.name }}</span>
+
+            </h3>
+        </div>
+        <div>
+
+            <img src="{{ project.client.get_picture }}" class="client_project_logo">
+
+            <div class="project-info">
+
+                <div class="info">
+                    <h5><span class="glyphicon glyphicon-fire"></span>{% trans 'Vulnerabilities' %}</h5>
+                    <span>{{ project.get_vulns_count }}</span>
+                </div>
+                <div class="info">
+                    <h5><span class="glyphicon glyphicon-leaf"></span>{% trans 'Best practice' %}</h5>
+                    <span>{{ project.get_best_pra_count }}</span>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <div class="project-user">
+        <a href="{% url 'profile' project.create_user.username %}"><img
+                src="{{ project.create_user.profile.get_picture }}" class="user"></a>
+        <a href="{% url 'profile' project.create_user.username %}"
+           class="username">{{ project.create_user.profile.get_screen_name }}</a>
+        <span class="asked">{%  trans 'started' %} {{ project.create_date|naturaltime }}</span>
+    </div>
+
+    <div class="project-description">
+        {{ project.get_description_preview_as_markdown|safe }}
+    </div>
+
+
+    {% comment %}
+    <div class="project-description">
+      {{ project.get_description_preview_as_markdown|safe }}
+    </div>
+    {% endcomment %}
+
+</div>

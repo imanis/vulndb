@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Projects{% endblock %}
+
+{% block head %}
+  <link href="{{ STATIC_URL }}css/projects.css" rel="stylesheet">
+  <script src="{{ STATIC_URL }}js/projects.js"></script>
+{% endblock head %}
+
+{% block main %}
+  <div class="page-header" >
+
+
+    <a href="{% url 'start' %}"  class="btn btn-primary pull-right {% if not perms.projects.add_project %}disabled{% endif %}">
+      <span  class="glyphicon glyphicon-expand "></span> {% trans "Start a new Project" %}
+    </a>
+    <h1>{% trans "Projects" %}</h1>
+  </div>
+  <div class="projects">
+    <ul class="nav nav-tabs" style="margin-bottom: 1.4em">
+      <li{% if active == 'active' %} class="active"{% endif %}><a href="{% url 'active' %}">{% trans "Active" %}</a></li>
+      <li{% if active == 'archived' %} class="active"{% endif %}><a href="{% url 'archived' %}">{% trans "Archived" %}</a></li>
+      <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "All Projects" %}</a></li>
+    </ul>
+    {% for project in projects %}
+
+      {% include 'projects/partial_project.html' with project=project %}
+
+    {% empty %}
+      <h4 class="no-data">{% trans "No Project yet" %}</h4>
+    {% endfor %}
+    {% include 'paginator.html' with paginator=projects %}
+  </div>
+{% endblock main %}

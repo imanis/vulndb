@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %} Draft{% endblock %}
+
+{% block head %}
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'vulns' %}">{% trans 'Vulnerability' %}</a></li>
+        <li class="active">{% trans 'Drafts' %}</li>
+    </ol>
+
+    <h5>
+        <p>
+            <span class="glyphicon glyphicon-info-sign"></span>
+            {% trans 'Here you can find all vulnerabilities you working on as drafts, and you can either Edit or Delete Them.' %}
+        </p>
+      <p>
+            <span class="glyphicon glyphicon-info-sign"></span>
+            {% trans 'Only you can see this list.' %}
+        </p>
+    </h5>
+
+    <br/><br/><br/><br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{% trans 'ID' %}</th>
+            <th>{% trans 'Vulnerability' %}</th>
+            <th>{% trans 'Severity' %}</th>
+            <th>{% trans 'Type' %}</th>
+            <th>{% trans 'Category' %}</th>
+            <th>{% trans 'Afected Item' %}</th>
+            <th>{% trans 'Date' %}</th>
+            <th>{% trans 'Added by' %}</th>
+            <th>{% trans 'Actions' %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vuln in drafts %}
+            <tr>
+                <td>{{ vuln.pk }}</td>
+                <td>{{ vuln.vulnerability }}</td>
+                <td>{% if vuln.get_severty %}{{ vuln.get_severty }}{% else %}n.a{% endif %}</td>
+                <td>{{ vuln.type }}</td>
+                <td>{{ vuln.category }}</td>
+                <td>{% if vuln.get_items_tags %}
+                    <div class="tags">
+                        {% for tag in vuln.get_items_tags %}
+                            <a href="{% url 'item_tag' tag %}"><span class="label label-default">{{ tag }}</span></a>
+                        {% endfor %}
+                    </div>
+                {% endif %}</td>
+                <td>{{ vuln.create_date }}</td>
+                <td>{{ vuln.create_user }}</td>
+                <td>
+                    <a href="{% url 'edit_vuln' vuln.pk %}" class="glyphicon glyphicon-check"></a>
+                    <a href="{% url 'delete_vuln' vuln.pk %}" class="glyphicon glyphicon-remove"></a>
+
+                </td>
+            </tr>
+        {% empty %}
+            <tr style="align:center;">
+                <td colspan="8" style="text-align: center">
+                    {% trans 'No draft to display' %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock main %}

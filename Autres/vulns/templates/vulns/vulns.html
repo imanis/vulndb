@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} {% trans 'vulns' %} {% endblock %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/vulns.css" rel="stylesheet">
+
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.dataTables.bootstrap.css">
+
+    <!-- DataTables-->
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ STATIC_URL }}js/dataTables.bootstrap.js"></script>
+
+
+
+{% endblock head %}
+
+{% block main %}
+    <div class="page-header">
+
+
+        <a href="{% url 'add' %}" class="btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-pencil"></span> {% trans 'Add vulnnerability' %}
+        </a>
+        <a href="{% url 'drafts' %}" class="btn btn-default pull-right"
+           style="margin-right: .8em">{% trans 'Drafts' %}</a>
+
+        <a href="{% url 'preferences' %}" class="btn btn-default pull-right" style="margin-right: .8em">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+
+
+        <a href="{% url 'vulns' %}"><h1>{% trans 'Vulnerabilities ' %}</h1></a>
+    </div>
+
+
+
+
+    <div class="col-md-5 popular-tags">
+        <h5>{% trans 'Popular Categories' %}</h5>
+        {% for cat, count in popular_categories %}
+            <a href="{% url 'category' cat %}"><span class="label label-default">{{ count }} {{ cat }}</span></a>
+        {% endfor %}
+    </div>
+    <div class="col-md-5 popular-tags">
+        <h5>{% trans 'Popular Vulnerabilities Types' %}</h5>
+        {% for type, count in popular_types %}
+            <a href="{% url 'type' type %}"><span class="label label-default">{{ count }} {{ type }}</span></a>
+        {% endfor %}
+    </div>
+
+    </br></br></br></br></br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="vulns">
+                <div id="vulns_div" class="table-responsive">
+                    <table class="table table-bordered  table-hover table-condensed" id="vulns_table">
+                        <thead>
+                        <tr>
+                            <th>{% trans 'Ref' %}</th>
+                            <th>{% trans 'Category' %}</th>
+                            <th>{% trans 'Afected Item' %}</th>
+                            <th>{% trans 'Vulnerability' %}</th>
+                            <th>{% trans 'Severity' %}</th>
+                            <th>{% trans 'Type' %}</th>
+                            <th>{% trans 'Expl impact ' %}</th>
+                            <th>{% trans 'Action priority ' %}</th>
+                            <th>{% trans 'Action complexity ' %}</th>
+                            <th>{% trans 'Date' %}</th>
+                            <th>{% trans 'user' %}</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for vuln in vulns %}
+                            <tr>
+                                <td><a href="{% url 'vuln' vuln.slug %}">{{ vuln.pk }}</a></td>
+                                <td class="info">{{ vuln.category }}</td>
+                                <td>
+                                    {% if vuln.get_items_tags %}
+                                        <div class="tags">
+                                            {% for tag in vuln.get_items_tags %}
+                                                <a href="{% url 'item_tag' tag.tag %}"><span
+                                                        class="label label-default">{{ tag }}</span></a>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </td>
+                                <td><a href="{% url 'vuln' vuln.slug %}">{{ vuln.vulnerability }}</a></td>
+                                <td class="danger">{{ vuln.severity }}</td>
+                                <td class="info">{{ vuln.type }}</td>
+                                <td class="danger">{{ vuln.exploitation_impact }}</td>
+                                <td>{{ vuln.action_priority }}</td>
+                                <td>{{ vuln.action_complexity }}</td>
+                                <td>{{ vuln.create_date | date:"m/d" }}</td>
+                                <td>{{ vuln.create_user }}</td>
+                                <td>
+                                    <a href="{% url 'edit_vuln' vuln.pk %}" class="glyphicon glyphicon-edit"></a>
+                                    <a href="{% url 'delete_vuln' vuln.pk %}" class="glyphicon glyphicon-remove"></a>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <h4 class="no-data">{% trans 'There is no published vulnerabilities yet' %}. <a
+                                    href="{% url 'add' %}">{% trans 'Be the first one to Add' %}!</a></h4>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+    <!--
+      <div class="row">
+        <div class="col-md-12">
+          {% include 'paginator.html' with paginator=vulns %}
+        </div>
+      </div>
+    -->
+
+    <script>
+        $(document).ready(function () {
+            $('#vulns_table').DataTable();
+        });
+    </script>
+
+
+{% endblock main %}

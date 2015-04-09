@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{{ vuln.vulnerability }}{% endblock %}
+
+{% block head %}
+    <link href="{{ STATIC_URL }}css/vulns.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/vulns_render.css" rel="stylesheet">
+
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+    <script src="{{ STATIC_URL }}ckeditor/ckeditor/ckeditor.js"></script>
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'vulns' %}">{% trans 'Vulnerabilities' %}</a></li>
+        <li class="vuln">{% trans 'Vulnerability' %}</li>
+    </ol>
+
+    <div class="page-header">
+    <a href="{% url 'edit_vuln' vuln.pk %}" class="btn btn-primary pull-right">
+        <span class="glyphicon glyphicon-edit"></span> {% trans 'Edit' %}
+    </a>
+</div>
+    <article>
+        <h3>
+            <a href="{% url 'vuln' vuln.slug %}">{{ vuln.vulnerability }}</a>
+        </h3>
+
+        <div class="info">
+            <span>{% trans 'Added ' %}</span>
+         <span class="date">
+            <span class="glyphicon glyphicon-calendar">
+
+            </span>
+            {{ vuln.create_date }}
+         </span>
+            <span>{% trans 'by ' %}</span>
+         <span class="user">
+             <a href="{% url 'profile' vuln.create_user.username %}"><img
+                     src="{{ vuln.create_user.profile.get_picture }}"></a>
+             <a href="{% url 'profile' vuln.create_user.username %}">{{ vuln.create_user.profile.get_screen_name }}</a>
+        </span>
+
+            {% if vuln.update_date %}
+
+                <span>{% trans 'Updated ' %}</span>
+                <span class="date">
+            <span class="glyphicon glyphicon-calendar">
+
+            </span>
+            {{ vuln.update_date }}
+         </span>
+                <span>{% trans 'by ' %}</span>
+                <span class="user">
+             <a href="{% url 'profile' vuln.update_user.username %}"><img
+                     src="{{ vuln.update_user.profile.get_picture }}"></a>
+             <a href="{% url 'profile' vuln.update_user.username %}"> {{ vuln.update_user.profile.get_screen_name }}</a>
+        </span>
+            {% endif %}
+
+
+        </div>
+
+        <!-- <div class="content">
+            {{ vuln.get_content_as_markdown|safe }}
+        </div>
+        -->
+        <div class="ckeditor">
+            {{ vuln.description|safe }}
+        </div>
+        <!--
+        {% if vuln.get_tags %}
+            <div class="tags">
+                {% for tag in vuln.get_tags %}
+                    <a href="{% url 'tag' tag.tag %}"><span class="label label-default">{{ tag }}</span></a>
+                {% endfor %}
+            </div>
+        {% endif %}
+        -->
+
+    </article>
+
+
+    <table border="1" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<th style="vertical-align:top; width:120px">
+			<p><strong>{{ vuln.ref }}</strong></p>
+			</th>
+			<th colspan="4" style="vertical-align:top; width:483px">
+			<p><strong>{{ vuln.vulnerability }}</strong></p>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+	    <td></td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top; width:120px">
+			<p><strong>Elément impacté</strong></p>
+			</td>
+			<td colspan="4" style="vertical-align:top; width:483px">
+
+                    {% if vuln.get_items_tags %}
+                                <div class="tags">
+                                  {% for tag in vuln.get_items_tags %}
+                                    <a href="{% url 'item_tag' tag.tag %}"><span class="label label-default">{{ tag }}</span></a>
+                                  {% endfor %}
+                                </div>
+                              {% endif %}
+
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top; width:120px">
+			<p><strong>Niveau de criticité</strong></p>
+			</td>
+			<td colspan="2" style="vertical-align:top; width:235px">
+			<p><strong>{{ vuln.severity }}</strong></p>
+			</td>
+			<td style="vertical-align:top; width:119px">
+			<p><strong>Type</strong></p>
+			</td>
+			<td style="vertical-align:top; width:128px">
+			<p><strong>{{ vuln.type }}</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top; width:120px">
+			<p><strong>Conséquences d’exploitation</strong></p>
+			</td>
+			<td colspan="2" style="vertical-align:top; width:235px">
+			<p><strong>{{ vuln.exploitation_impact }}</strong></p>
+			</td>
+			<td style="vertical-align:top; width:119px">
+			<p><strong>Complexité d'exploitation</strong></p>
+			</td>
+			<td style="vertical-align:top; width:128px">
+			<p><strong>{{ vuln.exploitation_complexity }}</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top;" colspan="5">
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top; width:120px">
+			<p><strong>Recommandation</strong></p>
+			</td>
+			<td colspan="4" style="vertical-align:top; width:483px">
+			{{ vuln.recommendation|safe }}
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top; width:120px">
+			<p><strong>Complexité de mise en œuvre</strong></p>
+			</td>
+			<td colspan="2" style="vertical-align:top; width:235px">
+			<p><strong>{{ vuln.action_complexity }}</strong></p>
+			</td>
+			<td style="vertical-align:top; width:119px">
+			<p><strong>Priorité de mise en œuvre</strong></p>
+			</td>
+			<td style="vertical-align:top; width:128px">
+			<p><strong>{{ vuln.action_priority }}</strong></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+    <!--
+
+
+    <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td width="158" valign="top">
+                <p class="MsoNormal"><span>Exploitation impact<o:p></o:p></span></p>
+            </td>
+            <td width="158" valign="top">
+                <p class="MsoNormal"><span lang="EN-US">Exploitation complexity<o:p></o:p></span></p>
+            </td>
+            <td width="158" valign="top">
+                <p class="MsoNormal"><span lang="EN-US">Action complexity<o:p></o:p></span></p>
+            </td>
+            <td width="158" valign="top">
+                <p class="MsoNormal"><span lang="EN-US">Action priority<o:p></o:p></span></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="MsoNormal1" width="158" valign="top">
+                <p><span lang="EN-US">Fort<o:p></o:p></span></p>
+            </td>
+            <td class="MsoNormal1" width="158" valign="top">
+                <p><span lang="EN-US">Simple<o:p></o:p></span></p>
+            </td>
+            <td class="MsoNormal3" width="158" valign="top">
+                <p><span lang="EN-US">Simple<o:p></o:p></span></p>
+            </td>
+            <td class="MsoNormal1" width="158" valign="top">
+                <p><span lang="EN-US">immediate<o:p></o:p></span></p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="MsoNormal"><span lang="EN-US">&nbsp;</span></p>
+
+    <p class="MsoNormal" style="line-height:15.0pt;background:white"><span lang="EN-US"
+                                                                           style="font-size:10.5pt;font-family:&quot;Helvetica&quot;,&quot;sans-serif&quot;;
+color:#333333">&nbsp;</span></p>
+
+-->
+
+{% endblock main %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load jsonify %}
+{% block title %} Add a vulnerability{% endblock %}
+
+{% block head %}
+    <script src="{{ STATIC_URL }}js/vulns.js"></script>
+
+
+    <script src="{{ STATIC_URL }}js/jquery-1.9.0.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.textext.full.min.js"></script>
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'vulns' %}">{% trans 'Vulnerability' %}</a></li>
+        <li class="active">{% trans 'Add Vulnerability' %}</li>
+
+    </ol>
+    <form action="{% url 'add' %}" method="post" role="form">
+        {% csrf_token %}
+        {{ form.status }}
+        {% for field in form.visible_fields %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+
+                {{ field }}
+                {% if field.label == 'Category' %}
+
+                    <a class="btn btn-primary pull-right gglyphicon glyphicon-plus add_category_show_button"
+                       data-toggle="modal"
+                       data-target="#add_category"> <span type="button"></span>
+                    </a>
+                {% endif %}
+                {% if field.help_text %}
+                    <span class="help-block">{{ field.help_text }}</span>
+                {% endif %}
+                {% for error in field.errors %}
+                    <label class="control-label">{{ error }}</label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+
+        <div class="form-group">
+            <button type="button" class="btn btn-primary publish">{% trans 'Save' %}</button>
+            <button type="button" class="btn btn-default draft">{% trans 'Save Draft' %}</button>
+            <button type="button" class="btn btn-default preview" data-toggle="modal"
+                    data-target="#preview">{% trans ' Description Preview' %}</button>
+            <a href="{% url 'vulns' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+        </div>
+    </form>
+
+
+    <div class="modal fade" id="add_category_modal_id">
+
+    </div>
+
+
+
+
+    <div class="modal fade" id="preview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Vulnerability Description Preview</h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('#id_tags')
+                .textext({
+                    plugins: 'tags prompt autocomplete', tagsItems:{{tagsliste|jsonify}}, prompt: '{% trans 'Add one... ' %} '
+                })
+                .bind('getSuggestions', function (e, data) {
+                    var list ={{tags|jsonify}},
+                            textext = $(e.target).textext()[0],
+                            query = (data ? data.query : '') || ''
+                            ;
+
+                    $(this).trigger(
+                            'setSuggestions',
+                            { result: textext.itemManager().filter(list, query) }
+                    );
+                })
+        ;
+        $('#id_tags').val('');
+
+    </script>
+{% endblock main %}

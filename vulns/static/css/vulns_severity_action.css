@@ -1,0 +1,127 @@
+.table-hover>tbody>tr.danger:hover>th{background-color:#ebcccc} .table > tbody > tr > td.Low,
+.table > tbody > tr > th.Low,
+.table > tbody > tr.Low > td,
+.table > tbody > tr.Low > th{
+  background-color: #2EB041;
+}
+.table-hover > tbody > tr > td.Low:hover {
+  background-color: #98FC8D;
+}
+
+
+
+.table > tbody > tr > td.Average,
+.table > tbody > tr > th.Average,
+.table > tbody > tr.Average > td,
+.table > tbody > tr.Average > th {
+  background-color: #F5C52A;
+}
+.table-hover > tbody > tr > td.Average:hover{
+  background-color: #FAEA73;
+}
+
+
+.table > tbody > tr > td.Hard,
+.table > tbody > tr > th.Hard,
+.table > tbody > tr.Hard > td,
+.table > tbody > tr.Hard > th{
+  background-color: #FA2407;
+}
+.table-hover > tbody > tr > td.Hard:hover{
+  background-color: #F76565;
+}
+
+.table > tbody > tr > td.Very,
+.table > tbody > tr > th.Very,
+.table > tbody > tr.Very > td,
+.table > tbody > tr.Very > th{
+  background-color: #DE0000;
+}
+.table-hover > tbody > tr > td.Very:hover{
+  background-color: #F76565;
+}
+
+.table > tbody > tr > td.actionLong,
+.table > tbody > tr > th.actionLong,
+.table > tbody > tr.actionLong > td,
+.table > tbody > tr.actionLong > th{
+  background-color: #9BF29B;
+}
+.table-hover > tbody > tr > td.actionLong:hover{
+  background-color: #BAF5BA;
+}
+
+.table > tbody > tr > td.actionMiddle,
+.table > tbody > tr > th.actionMiddle,
+.table > tbody > tr.actionMiddle > td,
+.table > tbody > tr.actionMiddle > th{
+  background-color: #21ED21;
+}
+.table-hover > tbody > tr > td.actionMiddle:hover{
+  background-color: #78FA78;
+}
+
+.table > tbody > tr > td.actionShort,
+.table > tbody > tr > th.actionShort,
+.table > tbody > tr.actionShort > td,
+.table > tbody > tr.actionShort > th{
+  background-color: #F5C52A;
+}
+.table-hover > tbody > tr > td.actionShort:hover{
+  background-color: #FAEA73;
+}
+
+.table > tbody > tr > td.actionImmediate,
+.table > tbody > tr > th.actionImmediate,
+.table > tbody > tr.actionImmediate > td,
+.table > tbody > tr.actionImmediate > th {
+  background-color: #FF0000;
+}
+.table-hover > tbody > tr > td.actionImmediate:hover{
+  background-color: #F76565;
+}
+
+.vertical
+{
+ margin-left: -90px;
+ margin-top: 99px;
+ position: absolute;
+ width: 215px;
+ transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+ -moz-transform: rotate(-90deg); /* Firefox */
+ -o-transform: rotate(-90deg); /* Opera */
+ -ms-transform: rotate(-90deg); /* IE 9 */
+}
+
+.vertical2
+{
+ margin-left: -75px;
+ margin-top: 55px;
+ position: absolute;
+ width: 180px;
+ transform: rotate(-90deg);
+ -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+ -moz-transform: rotate(-90deg); /* Firefox */
+ -o-transform: rotate(-90deg); /* Opera */
+ -ms-transform: rotate(-90deg); /* IE 9 */
+}
+
+
+.rotation
+{
+ height: 290px;
+ width: 50px;
+ line-height: 14px;
+ padding-bottom: 20px;
+ text-align: left;
+}
+
+.rotation2
+{
+ height: 200px;
+ width: 50px;
+ line-height: 14px;
+ padding-bottom: 20px;
+ text-align: left;
+}

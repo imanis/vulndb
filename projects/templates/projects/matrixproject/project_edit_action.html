@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} Add a Project{% endblock %}
+
+{% block head %}
+    <script src="{{ STATIC_URL }}js/projects.js"></script>
+    {{ form.media }}
+{% endblock head %}
+
+{% block main %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'projects' %}">{% trans 'Projects' %}</a></li>
+        <li class="active">{% trans 'Preferences' %}</li>
+
+    </ol>
+    <form action="{% if  action = 'exploitation_impact' %}
+    {% url 'project_action_edit' form.instance.id action  %}
+    {%  elif  project_action = 'action_complexity' %}
+    {% url 'action_edit' form.instance.id action %}
+    {%  elif  project_action = 'exploitation_complexity' %}
+    {% url 'action_edit' form.instance.id action %}
+    {%  elif  project_action = 'action_priority' %}
+    {% url 'project_action_edit' form.instance.id action %}
+    {%  elif  action = 'severity' %}
+    {% url 'project_action_edit' form.instance.id action %}
+    {% endif  %}"
+    " method="post" role="form">
+        {% csrf_token %}
+        
+        {% for field in form.visible_fields %}
+
+           
+
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="help-block">{{ field.help_text }}</span>
+                {% endif %}
+                {% for error in field.errors %}
+                    <label class="control-label">{{ error }}</label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+
+        <div class="form-group">
+            <button type="button" class="btn btn-primary publish">{% trans 'Save' %}</button>
+            <a href="{% url 'projects' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+        </div>
+    </form>
+
+
+    <div class="modal fade" id="add_client_modal_id">
+
+
+    </div>
+
+
+
+
+{% endblock main %}

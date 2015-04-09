@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %} {% trans 'vulns' %} {% endblock %}
+{% block main %}
+<a href="{% url 'edite_template_standart' %}" class="btn btn-info pull-right">
+  <span class="glyphicon glyphicon-pencil"></span> {% trans 'Edite Standart Template' %}
+</a>
+<a href="{% url 'add_template_standart' %}" class="btn btn-info pull-right">
+  <span class="glyphicon glyphicon-plus"></span> {% trans 'Add Standart Template' %}
+</a>
+<ul class="nav nav-tabs" style="margin-bottom: 1.4em">
+  <li {% if active == 'reports' %} class="active"{% endif %}><a href="{% url 'reports' %}">{% trans "Reports" %}</a></li>
+  <li {% if active == 'templates' %} class="active"{% endif %}><a href="{% url 'templates' %}">{% trans "Templates" %}</a></li>
+</ul>
+<h5>
+  <span class="glyphicon glyphicon-info-sign"></span>
+  {% trans 'Here you can find all Templates added ' %}
+</h5>
+{% if templates %}
+<a href="{% url 'add_template' %}" class="btn btn-primary pull-right">
+  <span class="glyphicon glyphicon-plus"></span> {% trans 'Add Template' %}
+</a>
+<br><br><br>
+<div class="row">
+  {% for template in templates %}
+  <div class="col-md-3 col-sm-6">
+    <div class="panel panel-default ">
+      <div class="panel-body list-group-item-success">
+        <h3 style="color: black;" class="text-center">{{template.name }}</h3>
+        <hr>
+        Front_cover : {{template.front_cover.name }} <br>
+        Font : {{template.font.name }} <br>
+        Font size :{{template.font_size.size }}<br>
+        Header : {{template.header.name }} <br>
+        Footer :{{template.footer.name }}<br>
+        <a href="#" class="btn btn-default btn-success  pull-right" data-toggle="modal" data-target="#{{template.pk }}">{% trans 'View More' %}</a>
+      </div>
+      <div class="panel-heading">
+        <b>{% trans 'Add by ' %} {{template.create_user.username }}</b>
+        <span class="fa-stack fa-5x pull-right">
+          <a href="{% url 'edite_template' template.pk %}"
+          class="glyphicon glyphicon-edit"></a>
+          <a href="{% url 'delete_template' template.pk %}"
+          class="glyphicon glyphicon-remove"></a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="{{template.pk }}" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">{% trans 'Template ' %}:{{template.name }}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#front_cover">
+                <h4 class="panel-title">{% trans 'Front cover' %}
+                  <span class="glyphicon pull-right glyphicon-chevron-up"></span></h4>
+                </a>
+              </div>
+              <div id="front_cover" class="panel-collapse collapse in ">
+                <div class="panel-body">
+                  {{template.front_cover.content }}
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <a data-toggle="collapse" data-parent="#accordion" href="#Font">
+                  <h4 class="panel-title">{% trans 'Font ' %}{{template.font.name }}
+                    <span class="glyphicon pull-right glyphicon-chevron-up"></span></h4>
+                  </a>
+                </div>
+                <div id="Font" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <span style="font-family: {{template.font.name }};font-size:24px;">This is Example
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#size">
+                    <h4 class="panel-title">{% trans 'Font size ' %}{{template.font_size.size }}
+                      <span class="glyphicon pull-right glyphicon-chevron-up"></span></h4>
+                    </a>
+                  </div>
+                  <div id="size" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <span style="font-size: {{template.font_size.size }}px;">This is Example</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#Header">
+                      <h4 class="panel-title">{% trans 'Header' %}
+                        <span class="glyphicon pull-right glyphicon-chevron-up"></span></h4>
+                      </a>
+                    </div>
+                    <div id="Header" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        {{template.header.content }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#Footer">
+                        <h4 class="panel-title">{% trans 'Footer' %}
+                          <span class="glyphicon pull-right glyphicon-chevron-up"></span></h4>
+                        </a>
+                      </div>
+                      <div id="Footer" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          {{template.footer.content }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close ' %}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="col-sm-offset-6">
+           {% include 'paginator.html' with paginator=templates %}
+         </div>
+         {% else %}
+         <h4 class="no-data">{% trans 'There is no published reports yet' %}. <a
+          href="{% url 'add_template' %}">{% trans 'Be the first one to Add' %}!</a></h4>
+          {% endif %}
+          {% endblock main %}
